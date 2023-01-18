@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "ionic:serve": "vite",
+    "dev:ios": "ionic cap run ios --livereload --external",
+    "dev:android": "ionic cap run android --livereload --external"
   },
   "dependencies": {
     "@capacitor/android": "^4.6.2",
@@ -17,6 +20,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "^4.6.2",
+    "@ionic/cli": "^6.20.8",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react-swc": "^3.0.0",
