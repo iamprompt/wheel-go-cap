@@ -1,3 +1,5 @@
+import React from 'react'
+import { MemoryRouter } from 'react-router-dom'
 import '../src/styles/globals.css'
 
 export const parameters = {
@@ -9,3 +11,11 @@ export const parameters = {
     },
   },
 }
+
+export const decorators = [
+  (Story) => (
+    <MemoryRouter initialEntries={['/']}>
+      <Story />
+    </MemoryRouter>
+  ),
+]

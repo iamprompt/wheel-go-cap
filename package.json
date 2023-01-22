@@ -32,6 +32,8 @@
   },
   "devDependencies": {
     "@capacitor/cli": "^4.6.2",
+    "@iconify/icons-material-symbols": "^1.2.25",
+    "@iconify/react": "^4.0.1",
     "@ionic/cli": "^6.20.8",
     "@storybook/addon-essentials": "^7.0.0-beta.31",
     "@storybook/addon-interactions": "^7.0.0-beta.31",
