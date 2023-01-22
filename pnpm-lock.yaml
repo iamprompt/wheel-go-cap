@@ -9,6 +9,7 @@ specifiers:
   '@capacitor/ios': ^4.6.2
   '@capacitor/keyboard': 4.1.1
   '@capacitor/status-bar': 4.1.1
+  '@iconify/icons-ic': ^1.2.13
   '@iconify/icons-material-symbols': ^1.2.25
   '@iconify/react': ^4.0.1
   '@ionic/cli': ^6.20.8
@@ -66,6 +67,7 @@ dependencies:
 
 devDependencies:
   '@capacitor/cli': 4.6.2
+  '@iconify/icons-ic': 1.2.13
   '@iconify/icons-material-symbols': 1.2.25
   '@iconify/react': 4.0.1_react@18.2.0
   '@ionic/cli': 6.20.8
@@ -1682,6 +1684,12 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    dev: true
+
+  /@iconify/icons-ic/1.2.13:
+    resolution: {integrity: sha512-TphrhwOvgd7CTmUhz6jgXF+SPnMtvTm03bZsAYbny2kwq4zlkhr9e16YEyPGMvKhjtTqNooA3iZ9Wa+pZ8moXQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify/icons-material-symbols/1.2.25:
