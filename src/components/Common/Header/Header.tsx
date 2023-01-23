@@ -1,17 +1,17 @@
 import menuIcon from '@iconify/icons-material-symbols/menu'
 import searchIcon from '@iconify/icons-material-symbols/search'
 import { Icon } from '@iconify/react'
-import { FC } from 'react'
+import { ComponentProps, FC } from 'react'
 import { Link } from 'react-router-dom'
 
 type Props = {
   searchPath?: string
   onMenuClick?: () => void
-}
+} & ComponentProps<'div'>
 
-export const Header: FC<Props> = ({ searchPath, onMenuClick }) => {
+export const Header: FC<Props> = ({ searchPath, onMenuClick, ...props }) => {
   return (
-    <div>
+    <div {...props}>
       <div className="w-full flex justify-between items-center px-5 py-3">
         {/* Left Side Hamburger Menu */}
         <div className="w-6 h-6">

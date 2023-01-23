@@ -5,7 +5,7 @@ import ExploreOutlineIcon from '@iconify/icons-material-symbols/explore-outline'
 import PersonIcon from '@iconify/icons-material-symbols/person'
 import PersonOutlineIcon from '@iconify/icons-material-symbols/person-outline'
 import { Icon, IconifyIcon } from '@iconify/react'
-import { FC } from 'react'
+import { ComponentProps, FC } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 type NavigationButtonProps = {
@@ -36,9 +36,11 @@ const NavigationButton: FC<NavigationButtonProps> = ({
   )
 }
 
-export const NavigationBar: FC = () => {
+type NavigationBarProps = ComponentProps<'div'>
+
+export const NavigationBar: FC<NavigationBarProps> = ({ ...props }) => {
   return (
-    <div>
+    <div {...props}>
       <div className="grid grid-cols-3 py-2">
         <NavigationButton
           to="/"
