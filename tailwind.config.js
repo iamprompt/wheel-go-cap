@@ -1,9 +1,13 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const plugin = require('tailwindcss/plugin')
 
 /** @type {import('tailwindcss').Config} */
 const config = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './index.html'],
   theme: {
+    fontFamily: {
+      sans: ['LINE Seed Sans TH', 'sans-serif'],
+    },
     extend: {},
   },
   plugins: [
