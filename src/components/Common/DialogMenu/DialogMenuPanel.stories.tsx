@@ -1,3 +1,4 @@
+import { Dialog } from '@headlessui/react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { DialogMenuPanel } from './DialogMenuPanel'
@@ -5,10 +6,22 @@ import { DialogMenuPanel } from './DialogMenuPanel'
 const meta = {
   title: 'Common/SideMenu/Panel',
   component: DialogMenuPanel,
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
   },
+  decorators: [
+    (Story) => (
+      <Dialog
+        open={true}
+        onClose={() => {
+          return
+        }}
+        static={true}
+      >
+        <Story />
+      </Dialog>
+    ),
+  ],
   argTypes: {
     onClose: {
       defaultValue: () => {

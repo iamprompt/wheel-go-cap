@@ -34,7 +34,7 @@ export const DialogMenu: FC<DialogMenuProps> = ({ isOpen = true, onClose }) => {
               leaveFrom="-translate-x-0"
               leaveTo="-translate-x-full"
             >
-              <DialogMenuPanel onClose={onClose} />
+              {(ref) => <DialogMenuPanel onClose={onClose} ref={ref} />}
             </Transition.Child>
           </div>
         </div>

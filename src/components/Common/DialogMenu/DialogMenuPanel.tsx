@@ -1,7 +1,8 @@
+import { Dialog } from '@headlessui/react'
 import arrowBackIosNewRounded from '@iconify/icons-material-symbols/arrow-back-ios-new-rounded'
 import errorIcon from '@iconify/icons-material-symbols/error'
 import { Icon } from '@iconify/react'
-import { FC } from 'react'
+import { forwardRef, ForwardRefRenderFunction } from 'react'
 
 import { DialogMenuItem } from './DialogMenuItem'
 
@@ -9,9 +10,15 @@ type DialogMenuPanelProps = {
   onClose: () => void
 }
 
-export const DialogMenuPanel: FC<DialogMenuPanelProps> = ({ onClose }) => {
+export const DialogMenuPanelComponent: ForwardRefRenderFunction<
+  HTMLDivElement,
+  DialogMenuPanelProps
+> = ({ onClose }, ref) => {
   return (
-    <div className="w-full max-w-[300px] transform min-h-screen bg-white p-6 safe-top text-left align-middle shadow-xl transition-all">
+    <Dialog.Panel
+      className="w-full max-w-[300px] transform min-h-screen bg-white p-6 safe-top text-left align-middle shadow-xl transition-all"
+      ref={ref}
+    >
       <div className="sticky top-0 left-0 bg-white">
         <div className="mb-8 py-4 flex flex-row justify-between items-end">
           <button type="button" onClick={onClose}>
@@ -94,6 +101,8 @@ export const DialogMenuPanel: FC<DialogMenuPanelProps> = ({ onClose }) => {
         <DialogMenuItem to="/how-to-use" label="How to Use" />
         <DialogMenuItem to="/help" label="Help & Feedback" />
       </div>
-    </div>
+    </Dialog.Panel>
   )
 }
+
+export const DialogMenuPanel = forwardRef(DialogMenuPanelComponent)
