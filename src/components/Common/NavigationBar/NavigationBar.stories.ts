@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { NavigationBar } from './NavigationBar'
 
 const meta = {
-  title: 'Common/NavigationBar',
+  title: 'Common/Navigation/FooterBar',
   component: NavigationBar,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/7.0/react/writing-docs/docs-page
   tags: ['autodocs'],
