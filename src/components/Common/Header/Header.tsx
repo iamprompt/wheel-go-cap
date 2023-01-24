@@ -1,21 +1,29 @@
 import menuIcon from '@iconify/icons-material-symbols/menu'
 import searchIcon from '@iconify/icons-material-symbols/search'
 import { Icon } from '@iconify/react'
+import clsx from 'clsx'
 import { ComponentProps, FC } from 'react'
 import { Link } from 'react-router-dom'
 
 type Props = {
   searchPath?: string
   onMenuClick?: () => void
+  showMenu?: boolean
 } & ComponentProps<'div'>
 
-export const Header: FC<Props> = ({ searchPath, onMenuClick, ...props }) => {
+export const Header: FC<Props> = ({
+  searchPath,
+  onMenuClick,
+  showMenu,
+  className,
+  ...props
+}) => {
   return (
-    <div {...props}>
+    <div className={clsx(className)} {...props}>
       <div className="w-full flex justify-between items-center px-5 py-3">
         {/* Left Side Hamburger Menu */}
         <div className="w-6 h-6">
-          {onMenuClick ? (
+          {showMenu && onMenuClick ? (
             <button onClick={() => onMenuClick()}>
               <Icon icon={menuIcon} className="text-2xl leading-6" />
             </button>

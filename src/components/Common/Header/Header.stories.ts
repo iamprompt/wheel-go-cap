@@ -34,6 +34,7 @@ export const Default: Story = {
 export const WithMenu: Story = {
   name: 'With Menu Button',
   args: {
+    showMenu: true,
     onMenuClick: () => {
       return
     },
@@ -43,6 +44,7 @@ export const WithMenu: Story = {
 export const WithSearch: Story = {
   name: 'With Search Button',
   args: {
+    showMenu: false,
     searchPath: '/search',
   },
 }
@@ -53,6 +55,7 @@ export const WithMenuAndSearch: Story = {
     onMenuClick: () => {
       return
     },
+    showMenu: true,
     searchPath: '/search',
   },
 }
