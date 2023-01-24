@@ -12,10 +12,6 @@ const meta = {
     layout: 'fullscreen',
   },
   argTypes: {
-    onMenuClick: {
-      description: 'Callback for when the menu button (hamburger) is clicked',
-      type: 'function',
-    },
     searchPath: {
       description: 'Path to the search page',
       type: 'string',
@@ -35,9 +31,6 @@ export const WithMenu: Story = {
   name: 'With Menu Button',
   args: {
     showMenu: true,
-    onMenuClick: () => {
-      return
-    },
   },
 }
 
@@ -52,9 +45,6 @@ export const WithSearch: Story = {
 export const WithMenuAndSearch: Story = {
   name: 'With Menu and Search Buttons',
   args: {
-    onMenuClick: () => {
-      return
-    },
     showMenu: true,
     searchPath: '/search',
   },
