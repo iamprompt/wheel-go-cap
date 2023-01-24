@@ -7,30 +7,32 @@ import { Link } from 'react-router-dom'
 
 type Props = {
   searchPath?: string
-  onMenuClick?: () => void
   showMenu?: boolean
 } & ComponentProps<'div'>
 
 export const Header: FC<Props> = ({
   searchPath,
-  onMenuClick,
   showMenu,
   className,
   ...props
 }) => {
   return (
     <div className={clsx(className)} {...props}>
-      <div className="w-full flex justify-between items-center px-5 py-3">
+      <div className="w-full flex justify-between items-end px-5 py-3">
         {/* Left Side Hamburger Menu */}
         <div className="w-6 h-6">
-          {showMenu && onMenuClick ? (
-            <button onClick={() => onMenuClick()}>
+          {showMenu ? (
+            <button
+              onClick={() => {
+                console.log('click')
+              }}
+            >
               <Icon icon={menuIcon} className="text-2xl leading-6" />
             </button>
           ) : null}
         </div>
         {/* Center Logo */}
-        <div className="shrink-0">
+        <div className="shrink-0 p-[1px]">
           <svg
             width="105"
             height="24"
