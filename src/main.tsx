@@ -2,29 +2,23 @@ import './styles/globals.css'
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import ExplorePage from './pages/explore'
-import HelloPage from './pages/hello'
 import HiPage from './pages/hi'
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <ExplorePage />,
-  },
-  {
-    path: '/hello',
-    element: <HelloPage />,
-  },
-  {
-    path: '/hi',
-    element: <HiPage />,
-  },
-])
+import ProfilePage from './pages/profile'
+import ScrollToTop from './utils/scrollToTop'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Router>
+      <ScrollToTop>
+        <Routes>
+          <Route path="/" element={<ExplorePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/hi" element={<HiPage />} />
+        </Routes>
+      </ScrollToTop>
+    </Router>
   </React.StrictMode>
 )
