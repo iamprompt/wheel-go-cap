@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import ExplorePage from './pages/explore'
-import HiPage from './pages/hi'
 import ProfilePage from './pages/profile'
+import RecordsPage from './pages/records'
 import ScrollToTop from './utils/scrollToTop'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -15,8 +15,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <ScrollToTop>
         <Routes>
           <Route path="/" element={<ExplorePage />} />
+          <Route path="/records" element={<RecordsPage />} />
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/hi" element={<HiPage />} />
         </Routes>
       </ScrollToTop>
     </Router>
