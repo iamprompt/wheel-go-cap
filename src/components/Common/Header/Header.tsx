@@ -2,8 +2,10 @@ import menuIcon from '@iconify/icons-material-symbols/menu'
 import searchIcon from '@iconify/icons-material-symbols/search'
 import { Icon } from '@iconify/react'
 import clsx from 'clsx'
-import { ComponentProps, FC } from 'react'
+import { ComponentProps, FC, useState } from 'react'
 import { Link } from 'react-router-dom'
+
+import { DialogMenu } from '../DialogMenu/DialogMenu'
 
 type Props = {
   searchPath?: string
@@ -16,19 +18,23 @@ export const Header: FC<Props> = ({
   className,
   ...props
 }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <div className={clsx(className)} {...props}>
       <div className="w-full flex justify-between items-end px-5 py-3">
         {/* Left Side Hamburger Menu */}
         <div className="w-6 h-6">
           {showMenu ? (
-            <button
-              onClick={() => {
-                console.log('click')
-              }}
-            >
-              <Icon icon={menuIcon} className="text-2xl leading-6" />
-            </button>
+            <>
+              <button onClick={() => setIsMenuOpen(true)}>
+                <Icon icon={menuIcon} className="text-2xl leading-6" />
+              </button>
+              <DialogMenu
+                isOpen={isMenuOpen}
+                onClose={() => setIsMenuOpen(false)}
+              />
+            </>
           ) : null}
         </div>
         {/* Center Logo */}
