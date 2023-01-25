@@ -1,6 +1,7 @@
 import { Dialog } from '@headlessui/react'
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { authContext, defaultAuthContext } from '../../../context/useAuth'
 import { DialogMenuPanel } from './DialogMenuPanel'
 
 const meta = {
@@ -34,11 +35,46 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  name: 'Default',
+export const LoggedOut: Story = {
+  name: 'Logged Out',
   args: {
     onClose: () => {
       console.log('onClose')
     },
   },
+  decorators: [
+    (Story) => (
+      <authContext.Provider
+        value={{
+          ...defaultAuthContext,
+          user: null,
+        }}
+      >
+        <Story />
+      </authContext.Provider>
+    ),
+  ],
+}
+
+export const LoggedIn: Story = {
+  name: 'Logged In',
+  args: {
+    onClose: () => {
+      console.log('onClose')
+    },
+  },
+  decorators: [
+    (Story) => (
+      <authContext.Provider
+        value={{
+          ...defaultAuthContext,
+          user: {
+            name: 'Anya Lee',
+          },
+        }}
+      >
+        <Story />
+      </authContext.Provider>
+    ),
+  ],
 }

@@ -5,6 +5,7 @@ import errorIcon from '@iconify/icons-material-symbols/error'
 import { Icon } from '@iconify/react'
 import { forwardRef, ForwardRefRenderFunction } from 'react'
 
+import { useAuth } from '../../../context/useAuth'
 import { DialogMenuItem } from './DialogMenuItem'
 
 type DialogMenuPanelProps = {
@@ -15,6 +16,10 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
   HTMLDivElement,
   DialogMenuPanelProps
 > = ({ onClose }, ref) => {
+  const { user } = useAuth()
+
+  console.log('user', user)
+
   return (
     <Dialog.Panel
       className="w-full max-w-[300px] transform min-h-screen flex flex-col bg-white p-6 safe-top safe-bottom text-left align-middle shadow-xl transition-all"
@@ -79,26 +84,33 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
           </div>
 
           {/* Logged in */}
-          <div className="flex border-t border-b p-4 items-center gap-4 mb-8">
-            <div>
-              <img
-                src="https://gravatar.com/avatar/1b052f?d=mp"
-                alt="Profile"
-                className="w-16 h-16 rounded-full"
-              />
+          {user ? (
+            <div className="flex border-t border-b p-4 items-center gap-4 mb-8">
+              <div>
+                <img
+                  src="https://gravatar.com/avatar/1b052f?d=mp"
+                  alt="Profile"
+                  className="w-16 h-16 rounded-full"
+                />
+              </div>
+              <div>
+                <div className="text-sm">Hi 👋,</div>
+                <div className="text-xl font-bold">Anya Lee</div>
+              </div>
             </div>
-            <div>
-              <div className="text-sm">Hi 👋,</div>
-              <div className="text-xl font-bold">Anya Lee</div>
-            </div>
-          </div>
+          ) : null}
 
-          <div className="mb-8">
-            <button className="align-middle w-full text-left px-6 py-3 font-bold from-[#6336BC] to-[#78CCDD] bg-gradient-to-r text-white rounded-xl">
-              Sign in to Wheel Go{' '}
-              <Icon icon={arrowForwardIosNewRounded} className="inline-block" />
-            </button>
-          </div>
+          {!user ? (
+            <div className="mb-8">
+              <button className="align-middle w-full text-left px-6 py-3 font-bold from-[#6336BC] to-[#78CCDD] bg-gradient-to-r text-white rounded-xl">
+                Sign in to Wheel Go{' '}
+                <Icon
+                  icon={arrowForwardIosNewRounded}
+                  className="inline-block"
+                />
+              </button>
+            </div>
+          ) : null}
         </div>
 
         <div className="flex flex-col gap-4">
@@ -114,9 +126,11 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
         </div>
       </div>
       <div>
-        <button className="w-full py-3 px-6 rounded-xl border border-gray-300 font-bold">
-          Sign Out
-        </button>
+        {user ? (
+          <button className="w-full py-3 px-6 rounded-xl border border-gray-300 font-bold">
+            Sign Out
+          </button>
+        ) : null}
       </div>
     </Dialog.Panel>
   )
