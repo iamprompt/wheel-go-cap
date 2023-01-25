@@ -1,5 +1,6 @@
 import { Dialog } from '@headlessui/react'
 import arrowBackIosNewRounded from '@iconify/icons-material-symbols/arrow-back-ios-new-rounded'
+import arrowForwardIosNewRounded from '@iconify/icons-material-symbols/arrow-forward-ios-rounded'
 import errorIcon from '@iconify/icons-material-symbols/error'
 import { Icon } from '@iconify/react'
 import { forwardRef, ForwardRefRenderFunction } from 'react'
@@ -16,11 +17,12 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
 > = ({ onClose }, ref) => {
   return (
     <Dialog.Panel
-      className="w-full max-w-[300px] transform min-h-screen flex flex-col bg-white p-6 safe-top text-left align-middle shadow-xl transition-all"
+      className="w-full max-w-[300px] transform min-h-screen flex flex-col bg-white p-6 safe-top safe-bottom text-left align-middle shadow-xl transition-all"
       ref={ref}
     >
       <div className="grow">
         <div>
+          {/* Header */}
           <div className="mb-8 py-4 flex flex-row justify-between items-end">
             <button type="button" onClick={onClose}>
               <Icon icon={arrowBackIosNewRounded} className="h-6 w-6" />
@@ -76,6 +78,7 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
             </div>
           </div>
 
+          {/* Logged in */}
           <div className="flex border-t border-b p-4 items-center gap-4 mb-8">
             <div>
               <img
@@ -88,6 +91,13 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
               <div className="text-sm">Hi 👋,</div>
               <div className="text-xl font-bold">Anya Lee</div>
             </div>
+          </div>
+
+          <div className="mb-8">
+            <button className="align-middle w-full text-left px-6 py-3 font-bold from-[#6336BC] to-[#78CCDD] bg-gradient-to-r text-white rounded-xl">
+              Sign in to Wheel Go{' '}
+              <Icon icon={arrowForwardIosNewRounded} className="inline-block" />
+            </button>
           </div>
         </div>
 
@@ -104,7 +114,9 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
         </div>
       </div>
       <div>
-        <button>signout</button>
+        <button className="w-full py-3 px-6 rounded-xl border border-gray-300 font-bold">
+          Sign Out
+        </button>
       </div>
     </Dialog.Panel>
   )
