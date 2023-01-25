@@ -5,6 +5,7 @@ import clsx from 'clsx'
 import { ComponentProps, FC, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { useAuth } from '../../../context/useAuth'
 import { DialogMenu } from '../DialogMenu/DialogMenu'
 
 type Props = {
@@ -18,6 +19,7 @@ export const Header: FC<Props> = ({
   className,
   ...props
 }) => {
+  const { toggleSignInDialog } = useAuth()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
@@ -33,6 +35,7 @@ export const Header: FC<Props> = ({
               <DialogMenu
                 isOpen={isMenuOpen}
                 onClose={() => setIsMenuOpen(false)}
+                onSignIn={toggleSignInDialog}
               />
             </>
           ) : null}

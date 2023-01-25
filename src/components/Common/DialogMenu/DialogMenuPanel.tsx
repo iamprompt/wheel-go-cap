@@ -10,12 +10,13 @@ import { DialogMenuItem } from './DialogMenuItem'
 
 type DialogMenuPanelProps = {
   onClose: () => void
+  onSignIn: () => void
 }
 
 export const DialogMenuPanelComponent: ForwardRefRenderFunction<
   HTMLDivElement,
   DialogMenuPanelProps
-> = ({ onClose }, ref) => {
+> = ({ onClose, onSignIn }, ref) => {
   const { user } = useAuth()
 
   console.log('user', user)
@@ -102,7 +103,10 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
 
           {!user ? (
             <div className="mb-8">
-              <button className="align-middle w-full text-left px-6 py-3 font-bold from-[#6336BC] to-[#78CCDD] bg-gradient-to-r text-white rounded-xl">
+              <button
+                className="align-middle w-full text-left px-6 py-3 font-bold from-[#6336BC] to-[#78CCDD] bg-gradient-to-r text-white rounded-xl"
+                onClick={() => onSignIn?.()}
+              >
                 Sign in to Wheel Go{' '}
                 <Icon
                   icon={arrowForwardIosNewRounded}

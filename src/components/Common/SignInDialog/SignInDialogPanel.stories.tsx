@@ -2,11 +2,11 @@ import { Dialog } from '@headlessui/react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { authContext, defaultAuthContext } from '../../../context/useAuth'
-import { DialogMenuPanel } from './DialogMenuPanel'
+import { SignInDialogPanel } from './SignInDialogPanel'
 
 const meta = {
-  title: 'Common/SideMenu/Panel',
-  component: DialogMenuPanel,
+  title: 'Common/SignIn/Panel',
+  component: SignInDialogPanel,
   parameters: {
     layout: 'fullscreen',
   },
@@ -28,22 +28,15 @@ const meta = {
       defaultValue: () => {
         console.log('onClose')
       },
-      type: 'function',
-    },
-    onSignIn: {
-      defaultValue: () => {
-        console.log('onSignIn')
-      },
-      type: 'function',
     },
   },
-} satisfies Meta<typeof DialogMenuPanel>
+} satisfies Meta<typeof SignInDialogPanel>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const LoggedOut: Story = {
-  name: 'Logged Out',
+export const Default: Story = {
+  name: 'Default',
   args: {
     onClose: () => {
       console.log('onClose')
@@ -55,29 +48,6 @@ export const LoggedOut: Story = {
         value={{
           ...defaultAuthContext,
           user: null,
-        }}
-      >
-        <Story />
-      </authContext.Provider>
-    ),
-  ],
-}
-
-export const LoggedIn: Story = {
-  name: 'Logged In',
-  args: {
-    onClose: () => {
-      console.log('onClose')
-    },
-  },
-  decorators: [
-    (Story) => (
-      <authContext.Provider
-        value={{
-          ...defaultAuthContext,
-          user: {
-            name: 'Anya Lee',
-          },
         }}
       >
         <Story />
