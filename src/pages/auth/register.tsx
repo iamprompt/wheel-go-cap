@@ -9,8 +9,8 @@ const AuthRegisterPage: FC = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="safe-top safe-left safe-right">
-      <div className="px-4">
+    <div className="safe-left safe-right">
+      <div className="safe-top safe-bottom px-4">
         {/* Header */}
         <div className="py-4">
           <button type="button" onClick={() => navigate(-1)} className="mb-8">
@@ -28,6 +28,25 @@ const AuthRegisterPage: FC = () => {
         {/* Register Form */}
         <form className="mt-3 mb-8">
           <div className="mb-6">
+            <label htmlFor="email" className="block text-base font-bold mb-3">
+              Email
+            </label>
+            <div className="relative">
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="Your email"
+                inputMode="text"
+                className="w-full px-6 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
+              />
+              <Icon
+                icon={checkCircleRounded}
+                className="h-6 w-6 absolute top-1/2 right-4 transform -translate-y-1/2 text-green-500"
+              />
+            </div>
+          </div>
+          <div className="mb-6">
             <label
               htmlFor="username"
               className="block text-base font-bold mb-3"
@@ -41,7 +60,7 @@ const AuthRegisterPage: FC = () => {
                 name="username"
                 placeholder="Your username"
                 inputMode="text"
-                className="w-full px-6 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
+                className="w-full px-6 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
               />
               <Icon
                 icon={checkCircleRounded}
@@ -63,7 +82,7 @@ const AuthRegisterPage: FC = () => {
                 name="firstName"
                 placeholder="Your first name"
                 inputMode="text"
-                className="w-full px-6 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
+                className="w-full px-6 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
               />
             </div>
           </div>
@@ -81,7 +100,7 @@ const AuthRegisterPage: FC = () => {
                 name="lastName"
                 placeholder="Your last name"
                 inputMode="text"
-                className="w-full px-6 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
+                className="w-full px-6 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
               />
             </div>
           </div>
@@ -98,11 +117,12 @@ const AuthRegisterPage: FC = () => {
                 id="birthdate"
                 name="birthdate"
                 placeholder="Your birthdate"
+                defaultValue={new Date().toISOString().substring(0, 10)}
                 style={{
                   WebkitAppearance: 'none',
                   MozAppearance: 'textfield',
                 }}
-                className="w-full px-6 py-3 bg-white text-left rounded-xl appearance-none border border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
+                className="w-full px-6 py-3 bg-white text-left rounded-xl appearance-none border-2 border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
               />
             </div>
           </div>
@@ -121,6 +141,7 @@ const AuthRegisterPage: FC = () => {
           <button
             type="button"
             className="w-full bg-[#6336BC] text-white font-bold py-3 rounded-xl"
+            onClick={() => navigate('/register/success')}
           >
             Register
           </button>
