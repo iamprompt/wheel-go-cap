@@ -3,6 +3,7 @@ import closeRounded from '@iconify/icons-material-symbols/close-rounded'
 import mailRounded from '@iconify/icons-material-symbols/mail-rounded'
 import { Icon } from '@iconify/react'
 import { forwardRef, ForwardRefRenderFunction } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { useAuth } from '../../../context/useAuth'
 import { AppleIcon, GoogleIcon, LINEIcon } from './Icons'
@@ -15,8 +16,8 @@ export const SignInDialogPanelComponent: ForwardRefRenderFunction<
   HTMLDivElement,
   SignInDialogPanelProps
 > = ({ onClose }, ref) => {
-  const { user, login, loginWithGoogle, loginWithApple, loginWithLine } =
-    useAuth()
+  const navigate = useNavigate()
+  const { user, loginWithGoogle, loginWithApple, loginWithLine } = useAuth()
 
   console.log('user', user)
 
@@ -59,7 +60,7 @@ export const SignInDialogPanelComponent: ForwardRefRenderFunction<
         </button>
         <button
           className="py-3 px-6 bg-white border border-gray-300 font-bold text-black rounded-xl flex gap-3 justify-center items-center"
-          onClick={() => login('email', 'password')}
+          onClick={() => navigate('/auth/login')}
         >
           <Icon icon={mailRounded} className="h-6 w-6 inline-block" /> Continue
           with Email
