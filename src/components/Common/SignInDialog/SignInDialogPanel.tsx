@@ -15,7 +15,8 @@ export const SignInDialogPanelComponent: ForwardRefRenderFunction<
   HTMLDivElement,
   SignInDialogPanelProps
 > = ({ onClose }, ref) => {
-  const { user } = useAuth()
+  const { user, login, loginWithGoogle, loginWithApple, loginWithLine } =
+    useAuth()
 
   console.log('user', user)
 
@@ -38,16 +39,28 @@ export const SignInDialogPanelComponent: ForwardRefRenderFunction<
       </div>
 
       <div className="flex flex-col gap-3">
-        <button className="py-3 px-6 bg-[#06C755] border border-[#06C755] font-bold text-white rounded-xl flex gap-3 justify-center items-center">
+        <button
+          className="py-3 px-6 bg-[#06C755] border border-[#06C755] font-bold text-white rounded-xl flex gap-3 justify-center items-center"
+          onClick={() => loginWithLine()}
+        >
           <LINEIcon className="h-6 w-6 inline-block" /> Continue with LINE
         </button>
-        <button className="py-3 px-6 bg-black border border-black font-bold text-white rounded-xl flex gap-3 justify-center items-center">
+        <button
+          className="py-3 px-6 bg-black border border-black font-bold text-white rounded-xl flex gap-3 justify-center items-center"
+          onClick={() => loginWithApple()}
+        >
           <AppleIcon className="h-6 w-6 inline-block" /> Continue with Apple
         </button>
-        <button className="py-3 px-6 bg-white border border-gray-300 font-bold text-black rounded-xl flex gap-3 justify-center items-center">
+        <button
+          className="py-3 px-6 bg-white border border-gray-300 font-bold text-black rounded-xl flex gap-3 justify-center items-center"
+          onClick={() => loginWithGoogle()}
+        >
           <GoogleIcon className="h-6 w-6 inline-block" /> Continue with Google
         </button>
-        <button className="py-3 px-6 bg-white border border-gray-300 font-bold text-black rounded-xl flex gap-3 justify-center items-center">
+        <button
+          className="py-3 px-6 bg-white border border-gray-300 font-bold text-black rounded-xl flex gap-3 justify-center items-center"
+          onClick={() => login('email', 'password')}
+        >
           <Icon icon={mailRounded} className="h-6 w-6 inline-block" /> Continue
           with Email
         </button>

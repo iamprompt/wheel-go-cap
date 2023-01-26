@@ -12,8 +12,8 @@ import ScrollToTop from './utils/scrollToTop'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <AuthProvider>
-      <Router>
+    <Router>
+      <AuthProvider>
         <ScrollToTop>
           <Routes>
             <Route path="/" element={<ExplorePage />} />
@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             <Route path="/profile" element={<ProfilePage />} />
           </Routes>
         </ScrollToTop>
-      </Router>
-    </AuthProvider>
+      </AuthProvider>
+    </Router>
   </React.StrictMode>
 )

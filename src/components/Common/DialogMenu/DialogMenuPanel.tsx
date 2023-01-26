@@ -17,7 +17,7 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
   HTMLDivElement,
   DialogMenuPanelProps
 > = ({ onClose, onSignIn }, ref) => {
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
 
   console.log('user', user)
 
@@ -96,7 +96,7 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
               </div>
               <div>
                 <div className="text-sm">Hi 👋,</div>
-                <div className="text-xl font-bold">Anya Lee</div>
+                <div className="text-xl font-bold">{user.name}</div>
               </div>
             </div>
           ) : null}
@@ -131,7 +131,10 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
       </div>
       <div>
         {user ? (
-          <button className="w-full py-3 px-6 rounded-xl border border-gray-300 font-bold">
+          <button
+            className="w-full py-3 px-6 rounded-xl border border-gray-300 font-bold"
+            onClick={() => logout()}
+          >
             Sign Out
           </button>
         ) : null}
