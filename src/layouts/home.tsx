@@ -13,7 +13,9 @@ export const HomeLayout: FC<
         searchPath="/search"
         showMenu={true}
       />
+      <div className="safe-top" />
       <main {...props}>{children}</main>
+      <div className="safe-bottom" />
       <NavigationBar className="fixed bottom-0 left-0 w-full bg-white rounded-t-xl drop-shadow-[0px_3px_5px_rgba(9,_30,_66,_0.2)] safe-bottom safe-left safe-right" />
     </div>
   )
