@@ -13,29 +13,27 @@ import RecordsPage from './pages/records'
 import ScrollToTop from './utils/scrollToTop'
 
 const App = () => {
-  Keyboard.addListener('keyboardDidShow', (info) => {
-    console.log('keyboardDidShow', info)
+  if (Capacitor.getPlatform() !== 'web') {
+    Keyboard.addListener('keyboardDidShow', (info) => {
+      console.log('keyboardDidShow', info)
 
-    const rootElement = document.getElementById('root')
+      const rootElement = document.getElementById('root')
 
-    if (
-      rootElement &&
-      info.keyboardHeight &&
-      Capacitor.getPlatform() !== 'web'
-    ) {
-      rootElement.style.paddingBottom = `${info.keyboardHeight}px`
-    }
-  })
+      if (rootElement && info.keyboardHeight) {
+        rootElement.style.paddingBottom = `${info.keyboardHeight}px`
+      }
+    })
 
-  Keyboard.addListener('keyboardDidHide', () => {
-    console.log('keyboardDidHide')
+    Keyboard.addListener('keyboardDidHide', () => {
+      console.log('keyboardDidHide')
 
-    const rootElement = document.getElementById('root')
+      const rootElement = document.getElementById('root')
 
-    if (rootElement && Capacitor.getPlatform() !== 'web') {
-      rootElement.style.paddingBottom = '0px'
-    }
-  })
+      if (rootElement) {
+        rootElement.style.paddingBottom = '0px'
+      }
+    })
+  }
 
   return (
     <Router>
