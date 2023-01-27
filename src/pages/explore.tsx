@@ -23,6 +23,9 @@ const ExplorePage = () => {
           lng: -117.9,
         },
         zoom: 8,
+        streetViewControl: false,
+        zoomControl: false,
+        mapTypeControl: false,
       },
     })
   }
