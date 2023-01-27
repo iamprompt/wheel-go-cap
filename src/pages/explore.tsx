@@ -19,10 +19,10 @@ const ExplorePage = () => {
       apiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
       config: {
         center: {
-          lat: 33.6,
-          lng: -117.9,
+          lat: 13.794469401082836,
+          lng: 100.3243931000262,
         },
-        zoom: 8,
+        zoom: 18,
         streetViewControl: false,
         zoomControl: false,
         mapTypeControl: false,
