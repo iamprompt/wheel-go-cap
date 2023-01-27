@@ -6,7 +6,7 @@ import {
   useEffect,
   useState,
 } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import { SignInDialog } from '../components/Common/SignInDialog/SignInDialog'
 
@@ -58,6 +58,7 @@ const defaultUser = {
 }
 
 const useAuthProvider = () => {
+  const navigate = useNavigate()
   const { pathname } = useLocation()
   const [isShowSignInDialog, setIsShowSignInDialog] = useState(false)
   const [user, setUser] = useState<any>(null)
@@ -72,6 +73,7 @@ const useAuthProvider = () => {
     // login logic
     setUser(defaultUser)
     setIsShowSignInDialog(false)
+    navigate('/')
   }
 
   const loginWithGoogle = () => {

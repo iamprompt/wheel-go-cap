@@ -142,7 +142,7 @@ const AuthRegisterPage: FC = () => {
           <button
             type="button"
             className="w-full bg-[#6336BC] text-white font-bold py-3 rounded-xl"
-            onClick={() => navigate('/register/success')}
+            onClick={() => navigate('/auth/register/success')}
           >
             Register
           </button>
