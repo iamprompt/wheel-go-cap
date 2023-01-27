@@ -20,24 +20,22 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <AuthProvider>
         <ScrollToTop>
           <Routes>
-            <Route path="/" element={<ExplorePage />} />
-            <Route path="/records" element={<RecordsPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
+            <Route index element={<ExplorePage />} />
+            <Route path="records" element={<RecordsPage />} />
+            <Route path="profile" element={<ProfilePage />} />
 
-            <Route path="/auth">
-              <Route path="/auth/login" element={<AuthSignInPage />} />
-              <Route path="/auth/register" element={<AuthRegisterPage />}>
-                <Route
-                  path="/auth/register/success"
-                  element={<SuccessRegisterPage />}
-                />
+            <Route path="auth">
+              <Route path="login" element={<AuthSignInPage />} />
+              <Route path="register">
+                <Route index element={<AuthRegisterPage />} />
+                <Route path="success" element={<SuccessRegisterPage />} />
               </Route>
               <Route
-                path="/auth/forget-password"
+                path="forget-password"
                 element={<div>Forget Password</div>}
               />
             </Route>
-            <Route path="/policy" element={<PolicyPage />} />
+            <Route path="policy" element={<PolicyPage />} />
           </Routes>
         </ScrollToTop>
       </AuthProvider>
