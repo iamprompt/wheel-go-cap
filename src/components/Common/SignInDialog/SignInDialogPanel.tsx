@@ -23,7 +23,7 @@ export const SignInDialogPanelComponent: ForwardRefRenderFunction<
 
   return (
     <Dialog.Panel
-      className="w-full max-w-md transform bg-white p-6 safe-bottom text-left align-middle shadow-xl transition-all rounded-t-xl"
+      className="w-full max-w-md bg-white p-6 safe-bottom text-left align-middle shadow-xl rounded-t-xl"
       ref={ref}
     >
       <div className="mb-6">
