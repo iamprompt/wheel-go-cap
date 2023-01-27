@@ -15,7 +15,7 @@ export const SignInDialog: FC<SignInDialogProps> = ({
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="relative h-full w-full z-10"
+        className="relative h-full w-full z-[99]"
         onClose={onClose}
       >
         <Transition.Child
