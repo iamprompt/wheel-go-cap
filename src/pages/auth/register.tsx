@@ -10,7 +10,8 @@ const AuthRegisterPage: FC = () => {
 
   return (
     <div className="safe-left safe-right">
-      <div className="safe-top safe-bottom px-4">
+      <div className="safe-top" />
+      <div className="px-4">
         {/* Header */}
         <div className="py-4">
           <button type="button" onClick={() => navigate(-1)} className="mb-8">
@@ -147,6 +148,7 @@ const AuthRegisterPage: FC = () => {
           </button>
         </div>
       </div>
+      <div className="safe-bottom" />
     </div>
   )
 }

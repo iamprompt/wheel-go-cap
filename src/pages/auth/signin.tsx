@@ -54,7 +54,7 @@ const AuthSignInPage: FC = () => {
           </div>
           <div className="mb-6">
             <label
-              htmlFor="firstName"
+              htmlFor="password"
               className="block text-base font-bold mb-3"
             >
               Password
