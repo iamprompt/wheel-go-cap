@@ -1,3 +1,4 @@
+import { Capacitor } from '@capacitor/core'
 import { Keyboard } from '@capacitor/keyboard'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
@@ -17,7 +18,11 @@ const App = () => {
 
     const rootElement = document.getElementById('root')
 
-    if (rootElement) {
+    if (
+      rootElement &&
+      info.keyboardHeight &&
+      Capacitor.getPlatform() !== 'web'
+    ) {
       rootElement.style.paddingBottom = `${info.keyboardHeight}px`
     }
   })
@@ -27,7 +32,7 @@ const App = () => {
 
     const rootElement = document.getElementById('root')
 
-    if (rootElement) {
+    if (rootElement && Capacitor.getPlatform() !== 'web') {
       rootElement.style.paddingBottom = '0px'
     }
   })
