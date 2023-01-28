@@ -17,7 +17,7 @@ export const HomeLayout: FC<HomeLayoutProps> = ({
   return (
     <BlankLayout transparent={transparent}>
       <Header
-        className="fixed top-0 left-0 z-50 w-full rounded-b-xl bg-white pb-2 shadow-xl drop-shadow-[0px_3px_5px_rgba(9,_30,_66,_0.2)] safe-top safe-x"
+        className="fixed top-0 left-0 z-50 w-full rounded-b-xl bg-white pb-2 shadow-medium safe-top safe-x"
         searchPath="/search"
         showMenu={true}
       />
@@ -26,7 +26,7 @@ export const HomeLayout: FC<HomeLayoutProps> = ({
         {children}
       </main>
       <div className="safe-bottom" />
-      <NavigationBar className="fixed bottom-0 left-0 z-50 w-full rounded-t-xl bg-white drop-shadow-[0px_3px_5px_rgba(9,_30,_66,_0.2)] safe-left safe-right safe-bottom" />
+      <NavigationBar className="fixed bottom-0 left-0 z-50 w-full rounded-t-xl bg-white shadow-medium safe-left safe-right safe-bottom" />
     </BlankLayout>
   )
 }

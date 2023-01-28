@@ -1,4 +1,5 @@
 import { Icon, IconifyIcon } from '@iconify/react'
+import clsx from 'clsx'
 import { FC } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -20,7 +21,13 @@ export const NavigationItem: FC<NavigationItemProps> = ({
   const isSelected = pathname === to
 
   return (
-    <Link to={to} className="flex flex-col items-center">
+    <Link
+      to={to}
+      className={clsx(
+        'flex flex-col items-center',
+        !isSelected && 'text-theme-unhover'
+      )}
+    >
       <Icon
         icon={isSelected ? selectedIcon : icon}
         className="text-xl leading-4"
