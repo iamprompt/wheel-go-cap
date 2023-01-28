@@ -5,11 +5,13 @@ import { Icon } from '@iconify/react'
 import { FC } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
+import { BlankLayout } from '../../layouts/blank'
+
 const AuthRegisterPage: FC = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="safe-left safe-right bg-white">
+    <BlankLayout>
       <div className="safe-top" />
       <div className="px-4">
         {/* Header */}
@@ -149,7 +151,7 @@ const AuthRegisterPage: FC = () => {
         </div>
       </div>
       <div className="safe-bottom" />
-    </div>
+    </BlankLayout>
   )
 }
 

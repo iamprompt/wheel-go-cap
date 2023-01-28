@@ -7,6 +7,7 @@ import { FC, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { useAuth } from '../../context/useAuth'
+import { BlankLayout } from '../../layouts/blank'
 
 const AuthSignInPage: FC = () => {
   const navigate = useNavigate()
@@ -18,7 +19,7 @@ const AuthSignInPage: FC = () => {
   const [showPassword, setShowPassword] = useState(false)
 
   return (
-    <div className="safe-left safe-right bg-white">
+    <BlankLayout>
       <div className="safe-top safe-bottom px-4">
         {/* Header */}
         <div className="py-4">
@@ -110,7 +111,7 @@ const AuthSignInPage: FC = () => {
           </p>
         </div>
       </div>
-    </div>
+    </BlankLayout>
   )
 }
 

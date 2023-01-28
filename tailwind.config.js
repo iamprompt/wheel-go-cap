@@ -25,6 +25,20 @@ const config = {
         '.safe-bottom': {
           paddingBottom: 'env(safe-area-inset-bottom)',
         },
+        '.safe-all': {
+          paddingTop: 'env(safe-area-inset-top)',
+          paddingLeft: 'env(safe-area-inset-left)',
+          paddingRight: 'env(safe-area-inset-right)',
+          paddingBottom: 'env(safe-area-inset-bottom)',
+        },
+        '.safe-y': {
+          paddingTop: 'env(safe-area-inset-top)',
+          paddingBottom: 'env(safe-area-inset-bottom)',
+        },
+        '.safe-x': {
+          paddingLeft: 'env(safe-area-inset-left)',
+          paddingRight: 'env(safe-area-inset-right)',
+        },
       }
       addUtilities(newUtilities)
       // addBase({

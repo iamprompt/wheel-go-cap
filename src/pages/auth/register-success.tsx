@@ -2,11 +2,13 @@ import checkCircleOutlineRounded from '@iconify/icons-material-symbols/check-cir
 import { Icon } from '@iconify/react'
 import { useNavigate } from 'react-router-dom'
 
+import { BlankLayout } from '../../layouts/blank'
+
 const SuccessRegisterPage = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="safe-left safe-right bg-white">
+    <BlankLayout>
       <div className="min-h-screen safe-top safe-bottom flex flex-col px-4">
         <div className="flex-1 flex justify-center items-center flex-col">
           <Icon
@@ -29,7 +31,7 @@ const SuccessRegisterPage = () => {
           </button>
         </div>
       </div>
-    </div>
+    </BlankLayout>
   )
 }
 
