@@ -4,7 +4,7 @@ const PolicyPage = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="safe-bottom safe-left safe-right">
+    <div className="safe-bottom safe-left safe-right bg-white">
       {/* Header */}
       <div className="fixed bg-white w-full top-0 safe-top">
         <div className="px-4 py-6 flex border-b border-gray-300">

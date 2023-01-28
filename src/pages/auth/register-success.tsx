@@ -6,7 +6,7 @@ const SuccessRegisterPage = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="safe-left safe-right">
+    <div className="safe-left safe-right bg-white">
       <div className="min-h-screen safe-top safe-bottom flex flex-col px-4">
         <div className="flex-1 flex justify-center items-center flex-col">
           <Icon

@@ -9,7 +9,7 @@ const AuthRegisterPage: FC = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="safe-left safe-right">
+    <div className="safe-left safe-right bg-white">
       <div className="safe-top" />
       <div className="px-4">
         {/* Header */}

@@ -18,7 +18,7 @@ const AuthSignInPage: FC = () => {
   const [showPassword, setShowPassword] = useState(false)
 
   return (
-    <div className="safe-left safe-right">
+    <div className="safe-left safe-right bg-white">
       <div className="safe-top safe-bottom px-4">
         {/* Header */}
         <div className="py-4">
