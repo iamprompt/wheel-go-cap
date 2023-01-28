@@ -23,7 +23,7 @@ export const DialogMenuItem: FC<DialogMenuItemProps> = ({
         {icon ? (
           <Icon
             icon={icon}
-            className={clsx('inline-block text-2xl ml-3', iconColor)}
+            className={clsx('ml-3 inline-block text-2xl', iconColor)}
           />
         ) : null}
       </Link>

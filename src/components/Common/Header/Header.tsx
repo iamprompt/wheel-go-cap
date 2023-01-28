@@ -24,9 +24,9 @@ export const Header: FC<Props> = ({
 
   return (
     <div className={clsx(className)} {...props}>
-      <div className="w-full flex justify-between items-end px-5 py-3">
+      <div className="flex w-full items-end justify-between px-5 py-3">
         {/* Left Side Hamburger Menu */}
-        <div className="w-6 h-6">
+        <div className="h-6 w-6">
           {showMenu ? (
             <>
               <button onClick={() => setIsMenuOpen(true)}>
@@ -76,7 +76,7 @@ export const Header: FC<Props> = ({
           </svg>
         </div>
         {/* Right Side Action Button */}
-        <div className="w-6 h-6">
+        <div className="h-6 w-6">
           {searchPath ? (
             <Link to={searchPath}>
               <Icon icon={searchIcon} className="text-2xl leading-6" />

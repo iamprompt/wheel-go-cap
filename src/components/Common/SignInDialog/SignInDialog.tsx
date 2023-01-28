@@ -15,7 +15,7 @@ export const SignInDialog: FC<SignInDialogProps> = ({
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="relative h-full w-full z-[99]"
+        className="relative z-[99] h-full w-full"
         onClose={onClose}
       >
         <Transition.Child
@@ -31,7 +31,7 @@ export const SignInDialog: FC<SignInDialogProps> = ({
         </Transition.Child>
 
         <div className="fixed inset-0">
-          <div className="flex absolute w-full items-end justify-center bottom-0">
+          <div className="absolute bottom-0 flex w-full items-end justify-center">
             <Transition.Child
               as={Fragment}
               enter="ease-in-out duration-300 transform transition"

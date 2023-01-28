@@ -23,12 +23,12 @@ export const SignInDialogPanelComponent: ForwardRefRenderFunction<
 
   return (
     <Dialog.Panel
-      className="w-full max-w-md bg-white p-6 safe-bottom text-left align-middle shadow-xl rounded-t-xl"
+      className="w-full max-w-md rounded-t-xl bg-white p-6 text-left align-middle shadow-xl safe-bottom"
       ref={ref}
     >
       <div className="mb-6">
         {/* Header */}
-        <div className="mb-6 flex flex-row justify-between items-end">
+        <div className="mb-6 flex flex-row items-end justify-between">
           <div className="text-xl font-bold">Sign in to Wheel Go</div>
           <button type="button" onClick={onClose}>
             <Icon icon={closeRounded} className="h-6 w-6" />
@@ -41,28 +41,28 @@ export const SignInDialogPanelComponent: ForwardRefRenderFunction<
 
       <div className="flex flex-col gap-3">
         <button
-          className="py-3 px-6 bg-[#06C755] border border-[#06C755] font-bold text-white rounded-xl flex gap-3 justify-center items-center"
+          className="flex items-center justify-center gap-3 rounded-xl border border-[#06C755] bg-[#06C755] py-3 px-6 font-bold text-white"
           onClick={() => loginWithLine()}
         >
-          <LINEIcon className="h-6 w-6 inline-block" /> Continue with LINE
+          <LINEIcon className="inline-block h-6 w-6" /> Continue with LINE
         </button>
         <button
-          className="py-3 px-6 bg-black border border-black font-bold text-white rounded-xl flex gap-3 justify-center items-center"
+          className="flex items-center justify-center gap-3 rounded-xl border border-black bg-black py-3 px-6 font-bold text-white"
           onClick={() => loginWithApple()}
         >
-          <AppleIcon className="h-6 w-6 inline-block" /> Continue with Apple
+          <AppleIcon className="inline-block h-6 w-6" /> Continue with Apple
         </button>
         <button
-          className="py-3 px-6 bg-white border border-gray-300 font-bold text-black rounded-xl flex gap-3 justify-center items-center"
+          className="flex items-center justify-center gap-3 rounded-xl border border-gray-300 bg-white py-3 px-6 font-bold text-black"
           onClick={() => loginWithGoogle()}
         >
-          <GoogleIcon className="h-6 w-6 inline-block" /> Continue with Google
+          <GoogleIcon className="inline-block h-6 w-6" /> Continue with Google
         </button>
         <button
-          className="py-3 px-6 bg-white border border-gray-300 font-bold text-black rounded-xl flex gap-3 justify-center items-center"
+          className="flex items-center justify-center gap-3 rounded-xl border border-gray-300 bg-white py-3 px-6 font-bold text-black"
           onClick={() => navigate('/auth/login')}
         >
-          <Icon icon={mailRounded} className="h-6 w-6 inline-block" /> Continue
+          <Icon icon={mailRounded} className="inline-block h-6 w-6" /> Continue
           with Email
         </button>
       </div>

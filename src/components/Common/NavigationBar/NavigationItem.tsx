@@ -25,7 +25,7 @@ export const NavigationItem: FC<NavigationItemProps> = ({
         icon={isSelected ? selectedIcon : icon}
         className="text-xl leading-4"
       />
-      <span className="text-sm leading-4 mt-2 font-bold">{label}</span>
+      <span className="mt-2 text-sm font-bold leading-4">{label}</span>
     </Link>
   )
 }

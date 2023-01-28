@@ -29,7 +29,7 @@ export const DialogMenu: FC<DialogMenuProps> = ({
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full items-start justify-start relative">
+          <div className="relative flex min-h-full items-start justify-start">
             <Transition.Child
               as={Fragment}
               enter="transition ease-in-out duration-300 transform"

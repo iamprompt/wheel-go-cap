@@ -20,7 +20,7 @@ const AuthRegisterPage: FC = () => {
             <Icon icon={arrowBackIosNewRounded} className="h-6 w-6" />
           </button>
           <div>
-            <h1 className="font-bold text-[32px] mb-2">Register</h1>
+            <h1 className="mb-2 text-[32px] font-bold">Register</h1>
             <p>
               To create more
               <br /> better environment together
@@ -31,7 +31,7 @@ const AuthRegisterPage: FC = () => {
         {/* Register Form */}
         <form className="mt-3 mb-8">
           <div className="mb-6">
-            <label htmlFor="email" className="block text-base font-bold mb-3">
+            <label htmlFor="email" className="mb-3 block text-base font-bold">
               Email
             </label>
             <div className="relative">
@@ -41,18 +41,18 @@ const AuthRegisterPage: FC = () => {
                 name="email"
                 placeholder="Your email"
                 inputMode="text"
-                className="w-full px-6 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
+                className="w-full rounded-xl border-2 border-gray-300 px-6 py-3 focus:border-2 focus:border-[#6336BC] focus:outline-none"
               />
               <Icon
                 icon={checkCircleRounded}
-                className="h-6 w-6 absolute top-1/2 right-4 transform -translate-y-1/2 text-green-500"
+                className="absolute top-1/2 right-4 h-6 w-6 -translate-y-1/2 text-green-500"
               />
             </div>
           </div>
           <div className="mb-6">
             <label
               htmlFor="username"
-              className="block text-base font-bold mb-3"
+              className="mb-3 block text-base font-bold"
             >
               Username
             </label>
@@ -63,18 +63,18 @@ const AuthRegisterPage: FC = () => {
                 name="username"
                 placeholder="Your username"
                 inputMode="text"
-                className="w-full px-6 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
+                className="w-full rounded-xl border-2 border-gray-300 px-6 py-3 focus:border-2 focus:border-[#6336BC] focus:outline-none"
               />
               <Icon
                 icon={checkCircleRounded}
-                className="h-6 w-6 absolute top-1/2 right-4 transform -translate-y-1/2 text-green-500"
+                className="absolute top-1/2 right-4 h-6 w-6 -translate-y-1/2 text-green-500"
               />
             </div>
           </div>
           <div className="mb-6">
             <label
               htmlFor="firstName"
-              className="block text-base font-bold mb-3"
+              className="mb-3 block text-base font-bold"
             >
               First Name
             </label>
@@ -85,14 +85,14 @@ const AuthRegisterPage: FC = () => {
                 name="firstName"
                 placeholder="Your first name"
                 inputMode="text"
-                className="w-full px-6 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
+                className="w-full rounded-xl border-2 border-gray-300 px-6 py-3 focus:border-2 focus:border-[#6336BC] focus:outline-none"
               />
             </div>
           </div>
           <div className="mb-6">
             <label
               htmlFor="lastName"
-              className="block text-base font-bold mb-3"
+              className="mb-3 block text-base font-bold"
             >
               Last Name
             </label>
@@ -103,14 +103,14 @@ const AuthRegisterPage: FC = () => {
                 name="lastName"
                 placeholder="Your last name"
                 inputMode="text"
-                className="w-full px-6 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
+                className="w-full rounded-xl border-2 border-gray-300 px-6 py-3 focus:border-2 focus:border-[#6336BC] focus:outline-none"
               />
             </div>
           </div>
           <div className="mb-6">
             <label
               htmlFor="birthdate"
-              className="block text-base font-bold mb-3"
+              className="mb-3 block text-base font-bold"
             >
               Birthdate
             </label>
@@ -125,14 +125,14 @@ const AuthRegisterPage: FC = () => {
                   WebkitAppearance: 'none',
                   MozAppearance: 'textfield',
                 }}
-                className="w-full px-6 py-3 bg-white text-left rounded-xl appearance-none border-2 border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
+                className="w-full appearance-none rounded-xl border-2 border-gray-300 bg-white px-6 py-3 text-left focus:border-2 focus:border-[#6336BC] focus:outline-none"
               />
             </div>
           </div>
         </form>
 
         {/* Term and Policy */}
-        <div className="text-center text-sm mb-8">
+        <div className="mb-8 text-center text-sm">
           <p>By registering, you agree to Wheel Go&apos;s</p>
           <Link to="/policy" className="text-[#6336BC]">
             Terms & Privacy Policy
@@ -143,7 +143,7 @@ const AuthRegisterPage: FC = () => {
         <div>
           <button
             type="button"
-            className="w-full bg-[#6336BC] text-white font-bold py-3 rounded-xl"
+            className="w-full rounded-xl bg-[#6336BC] py-3 font-bold text-white"
             onClick={() => navigate('/auth/register/success')}
           >
             Register

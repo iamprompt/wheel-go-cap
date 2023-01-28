@@ -23,13 +23,13 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
 
   return (
     <Dialog.Panel
-      className="w-full max-w-[300px] transform min-h-screen flex flex-col bg-white p-6 safe-top safe-bottom text-left align-middle shadow-xl transition-all"
+      className="flex min-h-screen w-full max-w-[300px] flex-col bg-white p-6 text-left align-middle shadow-xl transition-all safe-top safe-bottom"
       ref={ref}
     >
       <div className="grow">
         <div>
           {/* Header */}
-          <div className="mb-8 py-4 flex flex-row justify-between items-end">
+          <div className="mb-8 flex flex-row items-end justify-between py-4">
             <button type="button" onClick={onClose}>
               <Icon icon={arrowBackIosNewRounded} className="h-6 w-6" />
             </button>
@@ -86,12 +86,12 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
 
           {/* Logged in */}
           {user ? (
-            <div className="flex border-t border-b p-4 items-center gap-4 mb-8">
+            <div className="mb-8 flex items-center gap-4 border-y p-4">
               <div>
                 <img
                   src="https://gravatar.com/avatar/1b052f?d=mp"
                   alt="Profile"
-                  className="w-16 h-16 rounded-full"
+                  className="h-16 w-16 rounded-full"
                 />
               </div>
               <div>
@@ -104,7 +104,7 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
           {!user ? (
             <div className="mb-8">
               <button
-                className="align-middle w-full text-left px-6 py-3 font-bold from-[#6336BC] to-[#78CCDD] bg-gradient-to-r text-white rounded-xl"
+                className="w-full rounded-xl bg-gradient-to-r from-[#6336BC] to-[#78CCDD] px-6 py-3 text-left align-middle font-bold text-white"
                 onClick={() => onSignIn?.()}
               >
                 Sign in to Wheel Go{' '}
@@ -132,7 +132,7 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
       <div>
         {user ? (
           <button
-            className="w-full py-3 px-6 rounded-xl border border-gray-300 font-bold"
+            className="w-full rounded-xl border border-gray-300 py-3 px-6 font-bold"
             onClick={() => logout()}
           >
             Sign Out

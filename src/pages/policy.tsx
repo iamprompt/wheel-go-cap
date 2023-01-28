@@ -4,13 +4,13 @@ const PolicyPage = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="safe-bottom safe-left safe-right bg-white">
+    <div className="bg-white safe-left safe-right safe-bottom">
       {/* Header */}
-      <div className="fixed bg-white w-full top-0 safe-top">
-        <div className="px-4 py-6 flex border-b border-gray-300">
+      <div className="fixed top-0 w-full bg-white safe-top">
+        <div className="flex border-b border-gray-300 px-4 py-6">
           <div className="flex-1"></div>
           <div className="text-center">
-            <h1 className="font-bold text-base">Terms and Privacy Policy</h1>
+            <h1 className="text-base font-bold">Terms and Privacy Policy</h1>
           </div>
           <div className="flex-1 text-end">
             <button
@@ -26,9 +26,9 @@ const PolicyPage = () => {
 
       <div className="safe-top" />
       {/* Content */}
-      <div className="px-4 py-6 mt-20">
+      <div className="mt-20 px-4 py-6">
         <div className="mb-4">
-          <h2 className="font-bold text-2xl mb-2">
+          <h2 className="mb-2 text-2xl font-bold">
             Terms of Service and Privacy Policy
           </h2>
           <p>Effective Date: 1 January 2023</p>

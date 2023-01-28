@@ -20,14 +20,14 @@ const AuthSignInPage: FC = () => {
 
   return (
     <BlankLayout>
-      <div className="safe-top safe-bottom px-4">
+      <div className="px-4 safe-top safe-bottom">
         {/* Header */}
         <div className="py-4">
           <button type="button" onClick={() => navigate(-1)} className="mb-8">
             <Icon icon={arrowBackIosNewRounded} className="h-6 w-6" />
           </button>
           <div>
-            <h1 className="font-bold text-[32px] mb-2">Sign in</h1>
+            <h1 className="mb-2 text-[32px] font-bold">Sign in</h1>
             <p>
               To continue creating more
               <br /> better environment together
@@ -38,7 +38,7 @@ const AuthSignInPage: FC = () => {
         {/* Register Form */}
         <form className="mt-3 mb-8">
           <div className="mb-6">
-            <label htmlFor="email" className="block text-base font-bold mb-3">
+            <label htmlFor="email" className="mb-3 block text-base font-bold">
               Email
             </label>
             <div className="relative">
@@ -49,14 +49,14 @@ const AuthSignInPage: FC = () => {
                 placeholder="Your email"
                 inputMode="text"
                 ref={emailRef}
-                className="w-full px-6 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
+                className="w-full rounded-xl border-2 border-gray-300 px-6 py-3 focus:border-2 focus:border-[#6336BC] focus:outline-none"
               />
             </div>
           </div>
           <div className="mb-6">
             <label
               htmlFor="password"
-              className="block text-base font-bold mb-3"
+              className="mb-3 block text-base font-bold"
             >
               Password
             </label>
@@ -68,11 +68,11 @@ const AuthSignInPage: FC = () => {
                 placeholder="********"
                 inputMode="text"
                 ref={passwordRef}
-                className="w-full px-6 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-2 focus:border-[#6336BC]"
+                className="w-full rounded-xl border-2 border-gray-300 px-6 py-3 focus:border-2 focus:border-[#6336BC] focus:outline-none"
               />
               <Icon
                 icon={showPassword ? visibility : visibilityOffOutlineRounded}
-                className="h-6 w-6 absolute top-1/2 right-4 transform -translate-y-1/2 text-purple-500"
+                className="absolute top-1/2 right-4 h-6 w-6 -translate-y-1/2 text-purple-500"
                 onClick={() => setShowPassword(!showPassword)}
               />
             </div>
@@ -83,7 +83,7 @@ const AuthSignInPage: FC = () => {
         <div className="my-8">
           <button
             type="button"
-            className="w-full bg-[#6336BC] text-white font-bold py-3 rounded-xl"
+            className="w-full rounded-xl bg-[#6336BC] py-3 font-bold text-white"
             onClick={() =>
               login(
                 emailRef.current?.value || '',
@@ -95,7 +95,7 @@ const AuthSignInPage: FC = () => {
           </button>
         </div>
 
-        <div className="text-center text-sm mb-12">
+        <div className="mb-12 text-center text-sm">
           <Link to="/auth/forgot-password" className="text-[#6336BC]">
             Forgot password?
           </Link>
