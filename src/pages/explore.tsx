@@ -63,18 +63,20 @@ const ExplorePage = () => {
         }}
       >
         <div className="z-[99] w-full rounded-t-xl">
-          <div className="flex h-[86px] items-center rounded-t-xl bg-gradient-to-r from-[#7011B1] to-[#78CCDD] p-4 text-white">
+          <div className="flex h-[86px] items-center rounded-t-xl bg-brand-gradient-to-r p-4 text-white">
             <div className="flex-1">
               <div className="mb-2 flex flex-row items-center gap-2">
                 <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white">
                   <Icon
                     icon={apartment}
-                    className="h-4 w-4 text-base text-blue-700"
+                    className="h-4 w-4 text-base text-info-400"
                   />
                 </div>
-                <div className="text-sm font-bold">Building</div>
+                <div className="text-sm font-bold text-white/60">Building</div>
               </div>
-              <div className="text-xl font-bold">Office of the President</div>
+              <div className="text-xl font-bold text-white">
+                Office of the President
+              </div>
             </div>
             <div>
               <Icon icon={keyboardDoubleArrowUp} className="h-8 w-8 text-4xl" />
