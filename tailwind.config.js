@@ -11,7 +11,7 @@ const config = {
     extend: {},
   },
   plugins: [
-    plugin(function ({ addUtilities, addBase, config }) {
+    plugin(function ({ addUtilities }) {
       const newUtilities = {
         '.safe-top': {
           paddingTop: 'env(safe-area-inset-top, 16px)',
