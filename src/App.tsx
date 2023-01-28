@@ -1,6 +1,6 @@
 import { Capacitor } from '@capacitor/core'
 import { Keyboard } from '@capacitor/keyboard'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom'
 
 import { AuthProvider } from './context/useAuth'
 import AuthRegisterPage from './pages/auth/register'
@@ -56,6 +56,16 @@ const App = () => {
               />
             </Route>
             <Route path="policy" element={<PolicyPage />} />
+            <Route
+              path="*"
+              element={
+                <>
+                  <div>404</div>
+                  <div>Page not found</div>
+                  <Link to="/">Go to home</Link>
+                </>
+              }
+            />
           </Routes>
         </ScrollToTop>
       </AuthProvider>
