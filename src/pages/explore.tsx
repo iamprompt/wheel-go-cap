@@ -43,7 +43,7 @@ const ExplorePage = () => {
   }, [])
 
   return (
-    <HomeLayout className="w-full flex" nativeUI>
+    <HomeLayout className="w-full flex" transparent>
       <div className="flex h-screen fixed top-0 left-0 w-full z-0">
         <capacitor-google-map
           ref={mapRef}
