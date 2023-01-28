@@ -14,7 +14,7 @@ const config = {
     plugin(function ({ addUtilities, addBase, config }) {
       const newUtilities = {
         '.safe-top': {
-          paddingTop: 'env(safe-area-inset-top)',
+          paddingTop: 'env(safe-area-inset-top, 16px)',
         },
         '.safe-left': {
           paddingLeft: 'env(safe-area-inset-left)',
@@ -23,17 +23,17 @@ const config = {
           paddingRight: 'env(safe-area-inset-right)',
         },
         '.safe-bottom': {
-          paddingBottom: 'env(safe-area-inset-bottom)',
+          paddingBottom: 'env(safe-area-inset-bottom, 16px)',
         },
         '.safe-all': {
-          paddingTop: 'env(safe-area-inset-top)',
+          paddingTop: 'env(safe-area-inset-top, 16px)',
           paddingLeft: 'env(safe-area-inset-left)',
           paddingRight: 'env(safe-area-inset-right)',
-          paddingBottom: 'env(safe-area-inset-bottom)',
+          paddingBottom: 'env(safe-area-inset-bottom, 16px)',
         },
         '.safe-y': {
-          paddingTop: 'env(safe-area-inset-top)',
-          paddingBottom: 'env(safe-area-inset-bottom)',
+          paddingTop: 'env(safe-area-inset-top, 16px)',
+          paddingBottom: 'env(safe-area-inset-bottom, 16px)',
         },
         '.safe-x': {
           paddingLeft: 'env(safe-area-inset-left)',
