@@ -19,7 +19,7 @@ export const BadgeWithPopup: FC<BadgeWithPopupProps> = ({
   label,
   description,
 }) => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <>
