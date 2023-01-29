@@ -6,6 +6,7 @@ import { FC } from 'react'
 import { Link } from 'react-router-dom'
 
 import { BadgeWithLabel } from '../components/Profile/BadgeWithLabel'
+import { BadgeWithPopup } from '../components/Profile/BadgeWithPopup'
 import { HomeLayout } from '../layouts/home'
 
 type ActivityDetailItemProps = {
@@ -61,13 +62,13 @@ const ProfilePage = () => {
           </div>
         </div>
         <div className="grid grid-cols-4 gap-6">
-          <BadgeWithLabel
+          <BadgeWithPopup
             icon={navigationIcon}
             label="Master Navigation"
             size={48}
             color="#08CE57"
           />
-          <BadgeWithLabel
+          <BadgeWithPopup
             icon={rateReviewIcon}
             label="Skillful Reviewer"
             size={48}
