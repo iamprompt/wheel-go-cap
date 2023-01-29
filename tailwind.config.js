@@ -176,6 +176,9 @@ const config = {
         xLarge:
           '0px 18px 28px rgba(9, 30, 66, 0.15), 0px 0px 1px rgba(9, 30, 66, 0.31)',
       },
+      dropShadow: {
+        'inner-badge': '0px 2px 3px rgba(0, 0, 0, 0.15)',
+      },
       backgroundImage: {
         'brand-gradient': 'linear-gradient(90deg, #6A11B1 0%, #78CCDD 100%);',
         'brand-gradient-to-r':
