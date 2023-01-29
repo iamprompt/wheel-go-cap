@@ -1,4 +1,5 @@
 import { Dialog } from '@headlessui/react'
+import navigation from '@iconify/icons-material-symbols/navigation-rounded'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { BadgeDetailPanel } from './BadgeDetailPanel'
@@ -22,7 +23,11 @@ const meta = {
       </Dialog>
     ),
   ],
-  argTypes: {},
+  argTypes: {
+    onClose: {
+      type: 'function',
+    },
+  },
 } satisfies Meta<typeof BadgeDetailPanel>
 
 export default meta
@@ -30,5 +35,13 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   name: 'Default',
-  args: {},
+  args: {
+    data: {
+      icon: navigation,
+      size: 80,
+      color: 'red',
+      label: 'Label',
+      description: 'Description',
+    },
+  },
 }
