@@ -4,10 +4,10 @@ import { FC } from 'react'
 import { BadgeIcon } from '../BadgeIcon'
 
 type BadgeWithLabelProps = {
-  icon: IconifyIcon
+  icon?: IconifyIcon
   size: number
   color?: string
-  label: string
+  label?: string
 }
 
 export const BadgeWithLabel: FC<BadgeWithLabelProps> = ({
@@ -18,8 +18,12 @@ export const BadgeWithLabel: FC<BadgeWithLabelProps> = ({
 }) => {
   return (
     <div className="block">
-      <BadgeIcon icon={icon} color={color} size={size} className="mx-auto" />
-      <div className="text-center text-title-24-bold" style={{ color }}>
+      {icon ? (
+        <BadgeIcon icon={icon} color={color} size={size} className="mx-auto" />
+      ) : (
+        <BadgeIcon comingSoon size={size} color="#F3F1F1" />
+      )}
+      <div className="mt-1 text-center text-body-12-semibold" style={{ color }}>
         {label}
       </div>
     </div>
