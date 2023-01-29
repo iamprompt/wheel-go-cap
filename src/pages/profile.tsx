@@ -26,7 +26,7 @@ const ActivityDetailItem: FC<ActivityDetailItemProps> = ({
         <div className="text-xs font-bold text-theme-magenta">{label}</div>
       </div>
 
-      <div className="text-xs font-bold text-theme-magenta">{value}</div>
+      <div className="text-xs font-bold text-theme-description">{value}</div>
     </div>
   )
 }
@@ -116,23 +116,28 @@ const ProfilePage = () => {
         <div className="space-y-4">
           <ActivityDetailItem
             icon={navigationIcon}
-            label="Total Navigation"
-            value="20"
+            label="Travelled Distance"
+            value="10.5"
           />
           <ActivityDetailItem
             icon={navigationIcon}
-            label="Total Navigation"
-            value="20"
+            label="Contributed Routes"
+            value="45"
           />
           <ActivityDetailItem
             icon={navigationIcon}
-            label="Total Navigation"
-            value="20"
+            label="Places Visited"
+            value="15"
           />
           <ActivityDetailItem
             icon={navigationIcon}
-            label="Total Navigation"
-            value="20"
+            label="Total Reviews"
+            value="15"
+          />
+          <ActivityDetailItem
+            icon={navigationIcon}
+            label="Start Date"
+            value="16 Sep 2022"
           />
         </div>
       </div>
