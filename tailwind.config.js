@@ -1,6 +1,37 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const plugin = require('tailwindcss/plugin')
 
+const fontWeightMap = {
+  xbold: '900',
+  bold: '700',
+  semibold: '600',
+  medium: '500',
+  regular: '400',
+  light: '300',
+  thin: '200',
+}
+
+const getFontStyle = (name, size, weight, lineHeight) => {
+  return {
+    [`${name}-${size}-${weight}`]: [
+      `${size}px`,
+      {
+        lineHeight: `${lineHeight}px`,
+        fontWeight: fontWeightMap[weight] || '400',
+      },
+    ],
+  }
+}
+
+const getFontPresets = (styles = []) => {
+  return styles.reduce((acc, style) => {
+    return {
+      ...acc,
+      ...getFontStyle(style[0], style[1], style[2], style[3]),
+    }
+  }, {})
+}
+
 /** @type {import('tailwindcss').Config} */
 const config = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './index.html'],
@@ -151,6 +182,28 @@ const config = {
           'linear-gradient(107.36deg, #6A11B1 9.81%, #78CCDD 91.69%)',
         'brand-gradient-to-l':
           'linear-gradient(270deg, #5E60C6 0%, #A1FCDD 100%)',
+      },
+      fontSize: {
+        ...getFontPresets([
+          ['title', 42, 'xbold', 58],
+          ['title', 42, 'bold', 58],
+          ['title', 32, 'xbold', 40],
+          ['title', 32, 'bold', 40],
+          ['title', 24, 'bold', 36],
+          ['title', 24, 'regular', 36],
+          ['subtitle', 20, 'bold', 30],
+          ['subtitle', 20, 'medium', 30],
+          ['subtitle', 18, 'bold', 28],
+          ['subtitle', 18, 'semibold', 28],
+          ['subtitle', 18, 'medium', 28],
+          ['subtitle', 18, 'regular', 28],
+          ['body', 16, 'semibold', 24],
+          ['body', 16, 'regular', 24],
+          ['body', 14, 'semibold', 22],
+          ['body', 14, 'regular', 22],
+          ['body', 12, 'semibold', 18],
+          ['body', 12, 'regular', 18],
+        ]),
       },
     },
   },
