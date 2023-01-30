@@ -8,7 +8,8 @@ import SuccessRegisterPage from './pages/auth/register-success'
 import AuthSignInPage from './pages/auth/signin'
 import ExplorePage from './pages/explore'
 import PolicyPage from './pages/policy'
-import ProfilePage from './pages/profile'
+import EditProfilePage from './pages/profile/edit-profile'
+import ProfilePage from './pages/profile/profile'
 import RecordsPage from './pages/records'
 import ScrollToTop from './utils/scrollToTop'
 
@@ -42,7 +43,10 @@ const App = () => {
           <Routes>
             <Route index element={<ExplorePage />} />
             <Route path="records" element={<RecordsPage />} />
-            <Route path="profile" element={<ProfilePage />} />
+            <Route path="profile">
+              <Route index element={<ProfilePage />} />
+              <Route path="edit" element={<EditProfilePage />} />
+            </Route>
 
             <Route path="auth">
               <Route path="login" element={<AuthSignInPage />} />
@@ -56,6 +60,8 @@ const App = () => {
               />
             </Route>
             <Route path="policy" element={<PolicyPage />} />
+
+            {/* Fallback Path */}
             <Route
               path="*"
               element={

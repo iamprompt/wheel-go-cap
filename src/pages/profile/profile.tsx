@@ -5,9 +5,9 @@ import { Icon, IconifyIcon } from '@iconify/react'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 
-import { BadgeWithLabel } from '../components/Profile/BadgeWithLabel'
-import { BadgeWithPopup } from '../components/Profile/BadgeWithPopup'
-import { HomeLayout } from '../layouts/home'
+import { BadgeWithLabel } from '../../components/Profile/BadgeWithLabel'
+import { BadgeWithPopup } from '../../components/Profile/BadgeWithPopup'
+import { HomeLayout } from '../../layouts/home'
 
 type ActivityDetailItemProps = {
   icon: IconifyIcon
@@ -56,7 +56,10 @@ const ProfilePage = () => {
             </div>
           </div>
           <div className="mt-3 text-center">
-            <Link to={'/'} className="text-xs font-bold text-qac-magenta">
+            <Link
+              to="/profile/edit"
+              className="text-xs font-bold text-qac-magenta"
+            >
               Edit Profile
             </Link>
           </div>
