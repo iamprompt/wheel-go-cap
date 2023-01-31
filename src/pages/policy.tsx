@@ -1,28 +1,21 @@
 import { useNavigate } from 'react-router-dom'
 
+import { ActionHeaderWithTitle } from '../components/Common/ActionHeaderWithTitle'
+
 const PolicyPage = () => {
   const navigate = useNavigate()
 
   return (
     <div className="bg-white safe-left safe-right safe-bottom">
       {/* Header */}
-      <div className="fixed top-0 w-full bg-white safe-top">
-        <div className="flex border-b border-gray-300 px-4 py-6">
-          <div className="flex-1"></div>
-          <div className="text-center">
-            <h1 className="text-base font-bold">Terms and Privacy Policy</h1>
-          </div>
-          <div className="flex-1 text-end">
-            <button
-              type="button"
-              className="font-bold"
-              onClick={() => navigate(-1)}
-            >
-              Done
-            </button>
-          </div>
-        </div>
-      </div>
+      <ActionHeaderWithTitle
+        title="Terms and Privacy Policy"
+        actionLabel="Done"
+        showBackButton={false}
+        onAction={() => {
+          navigate(-1)
+        }}
+      />
 
       <div className="safe-top" />
       {/* Content */}
