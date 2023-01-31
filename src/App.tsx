@@ -1,5 +1,3 @@
-import { Capacitor } from '@capacitor/core'
-import { Keyboard } from '@capacitor/keyboard'
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom'
 
 import { AuthProvider } from './context/useAuth'
@@ -14,28 +12,6 @@ import RecordsPage from './pages/records'
 import ScrollToTop from './utils/scrollToTop'
 
 const App = () => {
-  if (Capacitor.getPlatform() !== 'web') {
-    Keyboard.addListener('keyboardDidShow', (info) => {
-      console.log('keyboardDidShow', info)
-
-      const rootElement = document.getElementById('root')
-
-      if (rootElement && info.keyboardHeight) {
-        rootElement.style.paddingBottom = `${info.keyboardHeight}px`
-      }
-    })
-
-    Keyboard.addListener('keyboardDidHide', () => {
-      console.log('keyboardDidHide')
-
-      const rootElement = document.getElementById('root')
-
-      if (rootElement) {
-        rootElement.style.paddingBottom = '0px'
-      }
-    })
-  }
-
   return (
     <Router>
       <AuthProvider>
