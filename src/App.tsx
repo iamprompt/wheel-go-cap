@@ -8,6 +8,7 @@ import ExplorePage from './pages/explore'
 import PolicyPage from './pages/policy'
 import EditProfilePage from './pages/profile/edit-profile'
 import ProfilePage from './pages/profile/profile'
+import SelectDisplayNamePage from './pages/profile/select-display-name'
 import RecordsPage from './pages/records'
 import ScrollToTop from './utils/scrollToTop'
 
@@ -21,7 +22,13 @@ const App = () => {
             <Route path="records" element={<RecordsPage />} />
             <Route path="profile">
               <Route index element={<ProfilePage />} />
-              <Route path="edit" element={<EditProfilePage />} />
+              <Route path="edit">
+                <Route index element={<EditProfilePage />} />
+                <Route
+                  path="display-name"
+                  element={<SelectDisplayNamePage />}
+                />
+              </Route>
             </Route>
 
             <Route path="auth">

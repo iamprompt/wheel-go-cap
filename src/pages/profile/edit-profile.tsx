@@ -3,7 +3,7 @@ import arrowForwardIcon from '@iconify/icons-material-symbols/arrow-forward-ios-
 import closeIcon from '@iconify/icons-material-symbols/close-rounded'
 import cameraIcon from '@iconify/icons-material-symbols/photo-camera-rounded'
 import { Icon } from '@iconify/react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { ActionHeaderWithTitle } from '../../components/Common/ActionHeaderWithTitle'
 import { BlankLayout } from '../../layouts/blank'
@@ -58,7 +58,10 @@ const EditProfilePage = () => {
               <div className="mb-2 px-4 text-sm font-bold text-theme-description">
                 Display Name
               </div>
-              <div className="flex flex-row items-center justify-between border-y p-4 text-sm font-bold">
+              <Link
+                to="/profile/edit/display-name"
+                className="flex flex-row items-center justify-between border-y p-4 text-sm font-bold"
+              >
                 <div>Anya Lee</div>
                 <div className="flex h-6 w-6 items-center justify-center">
                   <Icon
@@ -66,7 +69,7 @@ const EditProfilePage = () => {
                     className="text-theme-description"
                   />
                 </div>
-              </div>
+              </Link>
             </div>
 
             {/* Basic Info */}
