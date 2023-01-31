@@ -29,7 +29,7 @@ export const ActionHeaderWithTitle: FC<ActionHeaderWithTitleProps> = ({
       )}
       {...props}
     >
-      <div className="flex w-full items-end justify-between px-5 py-6">
+      <div className="flex w-full items-end justify-between px-5 py-4">
         {/* Left Side Back Button */}
         <div className="h-6 w-6">
           {showBackButton ? (
@@ -43,8 +43,11 @@ export const ActionHeaderWithTitle: FC<ActionHeaderWithTitleProps> = ({
         {/* Right Side Action Button */}
         <div>
           {actionLabel ? (
-            <button className="font-bold" onClick={() => onAction?.()}>
-              Save
+            <button
+              className="font-bold text-theme-magenta"
+              onClick={() => onAction?.()}
+            >
+              {actionLabel}
             </button>
           ) : null}
         </div>

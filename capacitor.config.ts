@@ -1,4 +1,5 @@
 import { CapacitorConfig } from '@capacitor/cli'
+import { KeyboardResize } from '@capacitor/keyboard'
 
 let config: CapacitorConfig
 
@@ -9,7 +10,7 @@ const baseConfig: CapacitorConfig = {
   bundledWebRuntime: false,
   plugins: {
     Keyboard: {
-      resize: 'body',
+      resize: KeyboardResize.Body,
       resizeOnFullScreen: true,
     },
   },
