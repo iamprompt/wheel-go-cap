@@ -30,6 +30,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Create local.properties files
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+        run: |
+          echo "GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY" > android/local.properties
+
       - name: Build APK
         run: pnpm build:android
 
