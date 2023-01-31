@@ -16,6 +16,7 @@ def capacitor_pods
   pod 'CapacitorHaptics', :path => '../../node_modules/.pnpm/@capacitor+haptics@4.1.0_@capacitor+core@4.6.2/node_modules/@capacitor/haptics'
   pod 'CapacitorKeyboard', :path => '../../node_modules/.pnpm/@capacitor+keyboard@4.1.1_@capacitor+core@4.6.2/node_modules/@capacitor/keyboard'
   pod 'CapacitorStatusBar', :path => '../../node_modules/.pnpm/@capacitor+status-bar@4.1.1_@capacitor+core@4.6.2/node_modules/@capacitor/status-bar'
+  pod 'CapawesomeCapacitorFilePicker', :path => '../../node_modules/.pnpm/@capawesome+capacitor-file-picker@0.5.9_@capacitor+core@4.6.2/node_modules/@capawesome/capacitor-file-picker'
 end
 
 target 'App' do

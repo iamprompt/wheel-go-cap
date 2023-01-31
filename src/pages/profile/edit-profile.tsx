@@ -1,3 +1,4 @@
+import { FilePicker } from '@capawesome/capacitor-file-picker'
 import arrowForwardIcon from '@iconify/icons-material-symbols/arrow-forward-ios-rounded'
 import closeIcon from '@iconify/icons-material-symbols/close-rounded'
 import cameraIcon from '@iconify/icons-material-symbols/photo-camera-rounded'
@@ -31,7 +32,23 @@ const EditProfilePage = () => {
                 alt="Profile Cover"
                 className="h-28 w-28 rounded-full object-cover shadow-small"
               />
-              <button className="absolute bottom-0 right-0 mx-auto inline-block rounded-full border border-theme-unhover bg-qac-magenta p-2 font-bold text-white shadow-small">
+              <button
+                className="absolute bottom-0 right-0 mx-auto inline-block rounded-full border border-theme-unhover bg-qac-magenta p-2 font-bold text-white shadow-small"
+                onClick={() => {
+                  const result = FilePicker.pickImages({
+                    multiple: false,
+                    readData: true,
+                  })
+
+                  result
+                    .then((res) => {
+                      console.log(res)
+                    })
+                    .catch((err) => {
+                      console.log(err)
+                    })
+                }}
+              >
                 <Icon icon={cameraIcon} />
               </button>
             </div>
