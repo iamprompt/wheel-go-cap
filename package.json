@@ -10,6 +10,7 @@
     "ionic:build": "tsc && vite build",
     "dev:ios": "ionic cap run ios --livereload --external",
     "dev:android": "ionic cap run android --livereload --external",
+    "build:android": "ionic cap build android",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
