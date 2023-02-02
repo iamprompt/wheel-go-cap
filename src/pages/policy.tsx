@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 
 import { ActionHeaderWithTitle } from '../components/Common/ActionHeaderWithTitle'
+import { BlankLayout } from '../layouts/blank'
 
 const PolicyPage = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="bg-white safe-left safe-right safe-bottom">
+    <BlankLayout>
       {/* Header */}
       <ActionHeaderWithTitle
         title="Terms and Privacy Policy"
@@ -16,10 +17,8 @@ const PolicyPage = () => {
           navigate(-1)
         }}
       />
-
-      <div className="safe-top" />
       {/* Content */}
-      <div className="mt-20 px-4 py-6">
+      <div className="px-4 py-6 pt-20">
         <div className="mb-4">
           <h2 className="mb-2 text-2xl font-bold">
             Terms of Service and Privacy Policy
@@ -56,7 +55,7 @@ const PolicyPage = () => {
           deserunt mollit anim id est laborum.
         </div>
       </div>
-    </div>
+    </BlankLayout>
   )
 }
 

@@ -28,6 +28,7 @@
     "@capawesome/capacitor-file-picker": "^0.5.9",
     "@headlessui/react": "^1.7.7",
     "@vitejs/plugin-react": "^3.0.1",
+    "capacitor-native-settings": "^4.0.3",
     "clsx": "^1.2.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

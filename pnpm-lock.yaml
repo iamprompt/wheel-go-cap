@@ -30,6 +30,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.48.2
   '@vitejs/plugin-react': ^3.0.1
   autoprefixer: ^10.4.13
+  capacitor-native-settings: ^4.0.3
   clsx: ^1.2.1
   eslint: ^8.32.0
   eslint-config-prettier: ^8.6.0
@@ -67,6 +68,7 @@ dependencies:
   '@capawesome/capacitor-file-picker': 0.5.9_@capacitor+core@4.6.2
   '@headlessui/react': 1.7.7_biqbaboplfbrettd7655fr4n2y
   '@vitejs/plugin-react': 3.0.1_vite@4.0.4
+  capacitor-native-settings: 4.0.3_@capacitor+core@4.6.2
   clsx: 1.2.1
   localforage: 1.10.0
   match-sorter: 6.3.1
@@ -4215,6 +4217,14 @@ packages:
 
   /caniuse-lite/1.0.30001445:
     resolution: {integrity: sha512-8sdQIdMztYmzfTMO6KfLny878Ln9c2M0fc7EH60IjlP4Dc4PiCy7K2Vl3ITmWgOyPgVQKa5x+UP/KqFsxj4mBg==}
+
+  /capacitor-native-settings/4.0.3_@capacitor+core@4.6.2:
+    resolution: {integrity: sha512-wxWFwdSySJ1dX8eLFogTYluLYu8fc8biMTL9x0ioI559mHiPDDoCBc//W0nhByUG7a1UxrY4vM4MGDTc/Mf7Bw==}
+    peerDependencies:
+      '@capacitor/core': ^4.0.1
+    dependencies:
+      '@capacitor/core': 4.6.2
+    dev: false
 
   /chalk/2.4.2:
     resolution: {integrity: sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==}
