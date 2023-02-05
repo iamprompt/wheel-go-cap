@@ -16,7 +16,7 @@ export const SearchHeader: FC<SearchHeaderProps> = ({
   return (
     <div
       className={clsx(
-        'fixed top-0 left-0 z-50 w-full border-b border-theme-divider bg-white safe-top safe-x',
+        'fixed top-0 left-0 z-50 w-full bg-white safe-top safe-x',
         className
       )}
       {...props}
@@ -32,7 +32,7 @@ export const SearchHeader: FC<SearchHeaderProps> = ({
         <div className="relative flex-1">
           <input
             type="text"
-            className="w-full rounded-xl border border-theme-divider p-3 pl-12"
+            className="h-12 w-full rounded-xl border border-theme-divider p-3 pl-12"
             placeholder="Explore new place"
             enterKeyHint="search"
           />
