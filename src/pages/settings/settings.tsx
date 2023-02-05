@@ -135,7 +135,7 @@ const SettingsPage = () => {
             <button
               className="w-full rounded-xl border border-gray-300 py-3 px-6 font-bold"
               onClick={() => {
-                return
+                navigate('/settings/delete-account')
               }}
             >
               Delete Account

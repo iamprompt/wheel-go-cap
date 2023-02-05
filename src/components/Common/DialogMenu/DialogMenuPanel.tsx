@@ -126,7 +126,7 @@ export const DialogMenuPanelComponent: ForwardRefRenderFunction<
           />
           <DialogMenuItem to="/settings" label="Settings" />
           <DialogMenuItem to="/how-to-use" label="How to Use" />
-          <DialogMenuItem to="/help" label="Help & Feedback" />
+          <DialogMenuItem to="/faq" label="FAQ" />
         </div>
       </div>
       <div>
