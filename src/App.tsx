@@ -5,6 +5,7 @@ import AuthRegisterPage from './pages/auth/register'
 import SuccessRegisterPage from './pages/auth/register-success'
 import AuthSignInPage from './pages/auth/signin'
 import ExplorePage from './pages/explore'
+import SearchHomePage from './pages/explore/searchHome'
 import FaqPage from './pages/faq'
 import PolicyPage from './pages/policy'
 import EditProfilePage from './pages/profile/edit-profile'
@@ -23,6 +24,11 @@ const App = () => {
         <ScrollToTop>
           <Routes>
             <Route index element={<ExplorePage />} />
+
+            <Route path="explore">
+              <Route path="search" element={<SearchHomePage />} />
+            </Route>
+
             <Route path="records" element={<RecordsPage />} />
             <Route path="profile">
               <Route index element={<ProfilePage />} />

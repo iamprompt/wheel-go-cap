@@ -18,7 +18,7 @@ export const HomeLayout: FC<HomeLayoutProps> = ({
     <BlankLayout transparent={transparent}>
       <Header
         className="fixed top-0 left-0 z-50 w-full rounded-b-xl bg-white pb-2 shadow-medium safe-top safe-x"
-        searchPath="/search"
+        searchPath="/explore/search"
         showMenu={true}
       />
       <div className="safe-top" />
