@@ -57,7 +57,6 @@ const SearchHomePage: FC = () => {
           </div>
         </div>
       </div>
-      <NavigationBar className="fixed bottom-0 left-0 z-50 w-full rounded-t-xl bg-white shadow-medium safe-left safe-right safe-bottom" />
     </BlankLayout>
   )
 }

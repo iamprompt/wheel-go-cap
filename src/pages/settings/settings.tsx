@@ -25,7 +25,7 @@ const SettingsPage = () => {
       <ActionHeaderWithTitle
         title="Settings"
         actionLabel="Save"
-        showBackButton={true}
+        // showBackButton={true}
         onAction={() => {
           console.log('Save')
           navigate('/profile')
