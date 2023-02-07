@@ -1,4 +1,3 @@
-import { GoogleMap } from '@capacitor/google-maps'
 import apartment from '@iconify/icons-material-symbols/apartment-rounded'
 import directionsBus from '@iconify/icons-material-symbols/directions-bus'
 import doorSliding from '@iconify/icons-material-symbols/door-sliding-rounded'
@@ -10,53 +9,82 @@ import star from '@iconify/icons-material-symbols/star-rounded'
 import wc from '@iconify/icons-material-symbols/wc-rounded'
 import wheelChairPickup from '@iconify/icons-material-symbols/wheelchair-pickup-rounded'
 import { Icon } from '@iconify/react'
+import { LatLngTuple } from 'leaflet'
 import { useEffect, useRef } from 'react'
+import {
+  MapContainer,
+  Marker,
+  Polyline,
+  Popup,
+  TileLayer,
+  useMap,
+} from 'react-leaflet'
 
 import { HomeLayout } from '../layouts/home'
 
 const ExplorePage = () => {
-  const mapRef = useRef<HTMLElement>()
-  let newMap: GoogleMap
+  const position = [13.7955, 100.32232] satisfies LatLngTuple
 
-  const createMap = async () => {
-    if (!mapRef.current) return
+  const arrayPoint = [
+    [13.7955467, 100.3229578],
+    [13.794446, 100.3247406],
+    [13.7939746, 100.3248458],
+  ] satisfies LatLngTuple[]
 
-    newMap = await GoogleMap.create({
-      id: 'my-cool-map',
-      element: mapRef.current,
-      apiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
-      config: {
-        center: {
-          lat: 13.794469401082836,
-          lng: 100.3243931000262,
-        },
-        zoom: 18,
-        streetViewControl: false,
-        zoomControl: false,
-        mapTypeControl: false,
-      },
-    })
-  }
+  const arrayPoint2 = [
+    [13.794147745444036, 100.32387934926832],
+    [13.794760280963228, 100.32384655144612],
+    [13.795176804197885, 100.32385159726492],
+  ] satisfies LatLngTuple[]
 
-  useEffect(() => {
-    createMap()
-  }, [])
+  const arrayPoint3 = [
+    [13.7963435, 100.3229426],
+    [13.796352, 100.324329],
+    [13.795998, 100.324275],
+  ] satisfies LatLngTuple[]
 
   return (
     <HomeLayout className="flex w-full" transparent>
-      <div className="fixed top-0 left-0 z-0 flex h-screen w-full">
-        <capacitor-google-map
-          ref={mapRef}
-          style={{
-            display: 'block',
-            width: '100%',
-            height: '100%',
-            position: 'fixed',
-            zIndex: 0,
-          }}
+      <div className="fixed top-0 left-0 z-0 flex h-screen w-full"></div>
+      <MapContainer
+        center={position}
+        zoom={13}
+        scrollWheelZoom={true}
+        style={{ minHeight: '100vh', minWidth: '100vw', zIndex: 1 }}
+      >
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-      </div>
-      <div
+        <Marker position={position}>
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+        {Array.from({ length: 10 }).map((_point, index) => (
+          <Polyline
+            key={`${index}-1`}
+            positions={arrayPoint}
+            pathOptions={{ color: 'black', opacity: 0.2 }}
+          />
+        ))}
+        {Array.from({ length: 2 }).map((_point, index) => (
+          <Polyline
+            key={`${index}-2`}
+            positions={arrayPoint2}
+            pathOptions={{ color: 'black', opacity: 0.2 }}
+          />
+        ))}
+        {Array.from({ length: 1 }).map((_point, index) => (
+          <Polyline
+            key={`${index}-3`}
+            positions={arrayPoint3}
+            pathOptions={{ color: 'black', opacity: 0.2 }}
+          />
+        ))}
+      </MapContainer>
+
+      {/* <div
         className="z-[20] mx-auto inline-block w-full max-w-lg px-5 safe-bottom"
         style={{
           marginTop: `calc(${window.innerHeight}px - 86px - env(safe-area-inset-bottom) - 60px)`,
@@ -156,7 +184,7 @@ const ExplorePage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </HomeLayout>
   )
 }
