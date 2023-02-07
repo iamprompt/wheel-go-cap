@@ -1,16 +1,5 @@
-import apartment from '@iconify/icons-material-symbols/apartment-rounded'
-import directionsBus from '@iconify/icons-material-symbols/directions-bus'
-import doorSliding from '@iconify/icons-material-symbols/door-sliding-rounded'
-import elevator from '@iconify/icons-material-symbols/elevator-rounded'
-import keyboardDoubleArrowUp from '@iconify/icons-material-symbols/keyboard-double-arrow-up-rounded'
-import localParking from '@iconify/icons-material-symbols/local-parking-rounded'
-// import starHalf from '@iconify/icons-material-symbols/star-half-rounded'
-import star from '@iconify/icons-material-symbols/star-rounded'
-import wc from '@iconify/icons-material-symbols/wc-rounded'
-import wheelChairPickup from '@iconify/icons-material-symbols/wheelchair-pickup-rounded'
-import { Icon } from '@iconify/react'
-import { LatLngTuple } from 'leaflet'
-import { useEffect, useRef } from 'react'
+import L, { LatLng, LatLngTuple } from 'leaflet'
+import { useEffect } from 'react'
 import {
   MapContainer,
   Marker,
@@ -19,28 +8,175 @@ import {
   TileLayer,
   useMap,
 } from 'react-leaflet'
+import { Geolocation } from '@capacitor/geolocation'
 
 import { HomeLayout } from '../layouts/home'
 
+import 'leaflet.heat'
+
+const HeatMap = ({ coords }: { coords: LatLng[] }) => {
+  const map = useMap()
+
+  useEffect(() => {
+    L.heatLayer(coords, {
+      radius: 8,
+    }).addTo(map)
+  })
+
+  return null
+}
+
+const CurrentLocationSetter = () => {
+  const map = useMap()
+
+  const setLocation = async () => {
+    const coordinates = await Geolocation.getCurrentPosition()
+    map.flyTo(
+      [coordinates.coords.latitude, coordinates.coords.longitude],
+      map.getZoom()
+    )
+    // Add marker
+    L.marker([coordinates.coords.latitude, coordinates.coords.longitude]).addTo(
+      map
+    )
+  }
+
+  useEffect(() => {
+    setLocation()
+  }, [])
+
+  return null
+}
+
 const ExplorePage = () => {
-  const position = [13.7955, 100.32232] satisfies LatLngTuple
+  const position = [13.794459, 100.322014] satisfies LatLngTuple
 
   const arrayPoint = [
-    [13.7955467, 100.3229578],
-    [13.794446, 100.3247406],
-    [13.7939746, 100.3248458],
+    [13.7952296, 100.3229328],
+    [13.795227, 100.322981],
+    [13.7952296, 100.3230722],
+    [13.795227, 100.3231554],
+    [13.795227, 100.3232251],
+    [13.795227, 100.3232788],
+    [13.795227, 100.3233244],
+    [13.7952218, 100.3233807],
+    [13.7952218, 100.3235121],
+    [13.7952218, 100.3235792],
+    [13.7952166, 100.3236301],
+    [13.7952114, 100.3236999],
+    [13.7952114, 100.3237589],
+    [13.7952062, 100.3238152],
+    [13.7951853, 100.3238501],
+    [13.7951515, 100.3238554],
+    [13.795115, 100.3238554],
+    [13.7950655, 100.3238581],
+    [13.7949978, 100.3238688],
+    [13.7949457, 100.3238635],
+    [13.7949014, 100.3238635],
+    [13.7948545, 100.3238662],
+    [13.794818, 100.3238688],
+    [13.7947607, 100.3238608],
+    [13.7947295, 100.3238474],
+    [13.7947243, 100.3238018],
+    [13.7947217, 100.3237428],
+    [13.7947217, 100.3237079],
+    [13.7947217, 100.3236623],
+    [13.7947165, 100.3236355],
+    [13.7947139, 100.3236006],
   ] satisfies LatLngTuple[]
 
   const arrayPoint2 = [
-    [13.794147745444036, 100.32387934926832],
-    [13.794760280963228, 100.32384655144612],
-    [13.795176804197885, 100.32385159726492],
+    [13.7951723, 100.3229046],
+    [13.7951945, 100.3229046],
+    [13.795227, 100.3229046],
+    [13.7952296, 100.3229328],
+    [13.795227, 100.322981],
+    [13.795214, 100.3230092],
+    [13.795214, 100.3230333],
+    [13.795214, 100.3230574],
+    [13.795214, 100.3230963],
+    [13.7952192, 100.3231218],
+    [13.7952179, 100.3231969],
+    [13.7952205, 100.3232372],
+    [13.795227, 100.3232788],
+    [13.7952192, 100.3233699],
+    [13.7952153, 100.3234303],
+    [13.7952296, 100.3234584],
+    [13.7952218, 100.3235121],
+    [13.7952114, 100.3235711],
+    [13.7952049, 100.3236194],
+    [13.7952036, 100.3236502],
+    [13.7952049, 100.3237159],
+    [13.7952036, 100.3237682],
+    [13.7952049, 100.3238071],
+    [13.7951958, 100.3238581],
+    [13.7951515, 100.3238554],
+    [13.7950903, 100.3238487],
+    [13.7950434, 100.3238554],
+    [13.7950134, 100.3238567],
+    [13.79496, 100.3238527],
+    [13.7949301, 100.3238567],
+    [13.794878, 100.3238567],
+    [13.7948259, 100.3238567],
+    [13.7947607, 100.3238608],
+    [13.7947113, 100.3238581],
+    [13.7947191, 100.3237669],
+    [13.7947191, 100.3237267],
+    [13.7947165, 100.3236355],
+    [13.7947178, 100.3235858],
   ] satisfies LatLngTuple[]
 
   const arrayPoint3 = [
-    [13.7963435, 100.3229426],
-    [13.796352, 100.324329],
-    [13.795998, 100.324275],
+    [13.7951053, 100.3228911],
+    [13.7951678, 100.3228911],
+    [13.7952277, 100.3228911],
+    [13.7952277, 100.3229515],
+    [13.7952394, 100.3229864],
+    [13.7952394, 100.3230534],
+    [13.795229, 100.3231111],
+    [13.7952355, 100.323205],
+    [13.7952342, 100.3232935],
+    [13.7952173, 100.3233458],
+    [13.795216, 100.3234128],
+    [13.7952303, 100.3235013],
+    [13.7952303, 100.3235979],
+    [13.7952277, 100.3236744],
+    [13.7952238, 100.3237441],
+    [13.7952173, 100.3238608],
+    [13.7951769, 100.3238621],
+    [13.7951339, 100.3238527],
+    [13.7950857, 100.323838],
+    [13.7950388, 100.3238406],
+    [13.7949776, 100.323846],
+    [13.7949203, 100.3238742],
+    [13.7948878, 100.3238621],
+    [13.7948435, 100.3238581],
+    [13.7947849, 100.323846],
+    [13.794721, 100.3238608],
+    [13.7947341, 100.3237548],
+    [13.7947191, 100.3237267],
+    [13.7947173, 100.3236993],
+    [13.7947167, 100.3236483],
+    [13.7947139, 100.3236006],
+    [13.7947056, 100.3235799],
+  ] satisfies LatLngTuple[]
+
+  const arrayPoint4 = [
+    [13.7951941, 100.3246713],
+    [13.7951941, 100.3247464],
+    [13.7951941, 100.3247947],
+    [13.7951733, 100.3248269],
+    [13.7951186, 100.3248269],
+    [13.7950509, 100.3248215],
+    [13.7949337, 100.3248242],
+    [13.7949389, 100.3248778],
+    [13.7949363, 100.3249502],
+    [13.7949337, 100.3250441],
+    [13.7949415, 100.32513],
+    [13.7949597, 100.3252211],
+    [13.7949753, 100.3252667],
+    [13.7949857, 100.3253848],
+    [13.7949831, 100.3254384],
   ] satisfies LatLngTuple[]
 
   return (
@@ -48,7 +184,7 @@ const ExplorePage = () => {
       <div className="fixed top-0 left-0 z-0 flex h-screen w-full"></div>
       <MapContainer
         center={position}
-        zoom={13}
+        zoom={16}
         scrollWheelZoom={true}
         style={{ minHeight: '100vh', minWidth: '100vw', zIndex: 1 }}
       >
@@ -61,27 +197,31 @@ const ExplorePage = () => {
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
         </Marker>
-        {Array.from({ length: 10 }).map((_point, index) => (
-          <Polyline
-            key={`${index}-1`}
-            positions={arrayPoint}
-            pathOptions={{ color: 'black', opacity: 0.2 }}
-          />
-        ))}
-        {Array.from({ length: 2 }).map((_point, index) => (
-          <Polyline
-            key={`${index}-2`}
-            positions={arrayPoint2}
-            pathOptions={{ color: 'black', opacity: 0.2 }}
-          />
-        ))}
-        {Array.from({ length: 1 }).map((_point, index) => (
-          <Polyline
-            key={`${index}-3`}
-            positions={arrayPoint3}
-            pathOptions={{ color: 'black', opacity: 0.2 }}
-          />
-        ))}
+        <Polyline
+          positions={arrayPoint}
+          pathOptions={{ color: 'black', opacity: 0.2 }}
+        />
+        <Polyline
+          positions={arrayPoint2}
+          pathOptions={{ color: 'black', opacity: 0.2 }}
+        />
+        <Polyline
+          positions={arrayPoint3}
+          pathOptions={{ color: 'black', opacity: 0.2 }}
+        />
+        <Polyline
+          positions={arrayPoint4}
+          pathOptions={{ color: 'black', opacity: 0.2 }}
+        />
+        <HeatMap
+          coords={[
+            ...arrayPoint,
+            ...arrayPoint2,
+            ...arrayPoint3,
+            ...arrayPoint4,
+          ].map((point) => new LatLng(point[0], point[1]))}
+        />
+        <CurrentLocationSetter />
       </MapContainer>
 
       {/* <div
