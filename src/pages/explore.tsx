@@ -1,4 +1,6 @@
+import { Geolocation } from '@capacitor/geolocation'
 import L, { LatLng, LatLngTuple } from 'leaflet'
+import 'leaflet.heat'
 import { useEffect } from 'react'
 import {
   MapContainer,
@@ -8,11 +10,8 @@ import {
   TileLayer,
   useMap,
 } from 'react-leaflet'
-import { Geolocation } from '@capacitor/geolocation'
 
 import { HomeLayout } from '../layouts/home'
-
-import 'leaflet.heat'
 
 const HeatMap = ({ coords }: { coords: LatLng[] }) => {
   const map = useMap()
