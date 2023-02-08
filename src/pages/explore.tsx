@@ -1,7 +1,7 @@
 import { Geolocation } from '@capacitor/geolocation'
 import L, { LatLng, LatLngTuple } from 'leaflet'
 import 'leaflet.heat'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {
   MapContainer,
   Marker,
@@ -25,26 +25,26 @@ const HeatMap = ({ coords }: { coords: LatLng[] }) => {
   return null
 }
 
-const CurrentLocationSetter = () => {
+const CurrentLocationSetter = ({ fallback }: { fallback: LatLngTuple }) => {
   const map = useMap()
+  const [position, setPosition] = useState<LatLngTuple>(fallback)
 
   const setLocation = async () => {
     const coordinates = await Geolocation.getCurrentPosition()
-    map.flyTo(
-      [coordinates.coords.latitude, coordinates.coords.longitude],
-      map.getZoom()
-    )
-    // Add marker
-    L.marker([coordinates.coords.latitude, coordinates.coords.longitude]).addTo(
-      map
-    )
+    const { latitude, longitude } = coordinates.coords
+
+    const pos = [latitude, longitude] satisfies LatLngTuple
+
+    setPosition(pos)
+
+    map.flyTo(pos, map.getZoom())
   }
 
   useEffect(() => {
     setLocation()
   }, [])
 
-  return null
+  return <Marker position={position}></Marker>
 }
 
 const ExplorePage = () => {
@@ -183,18 +183,19 @@ const ExplorePage = () => {
       <div className="fixed top-0 left-0 z-0 flex h-screen w-full"></div>
       <MapContainer
         center={position}
+        zoomControl={false}
         zoom={16}
         scrollWheelZoom={true}
-        style={{ minHeight: '100vh', minWidth: '100vw', zIndex: 1 }}
+        className="z-[1] h-screen w-screen"
       >
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker position={position}>
-          <Popup>
+          {/* <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
+          </Popup> */}
         </Marker>
         <Polyline
           positions={arrayPoint}
@@ -220,7 +221,7 @@ const ExplorePage = () => {
             ...arrayPoint4,
           ].map((point) => new LatLng(point[0], point[1]))}
         />
-        <CurrentLocationSetter />
+        <CurrentLocationSetter fallback={position} />
       </MapContainer>
 
       {/* <div
