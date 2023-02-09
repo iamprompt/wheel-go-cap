@@ -10,6 +10,7 @@ import {
   TileLayer,
   useMap,
 } from 'react-leaflet'
+import { useGeolocation } from '../context/useGeolocation'
 
 import { HomeLayout } from '../layouts/home'
 
@@ -48,7 +49,8 @@ const CurrentLocationSetter = ({ fallback }: { fallback: LatLngTuple }) => {
 }
 
 const ExplorePage = () => {
-  const position = [13.794459, 100.322014] satisfies LatLngTuple
+  const { geolocation } = useGeolocation()
+  const [mapCenter, setMapCenter] = useState<LatLngTuple>(geolocation)
 
   const arrayPoint = [
     [13.7952296, 100.3229328],
@@ -182,7 +184,7 @@ const ExplorePage = () => {
     <HomeLayout className="flex w-full" transparent>
       <div className="fixed top-0 left-0 z-0 flex h-screen w-full"></div>
       <MapContainer
-        center={position}
+        center={geolocation}
         zoomControl={false}
         zoom={16}
         scrollWheelZoom={true}
@@ -192,7 +194,7 @@ const ExplorePage = () => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position}>
+        <Marker position={geolocation}>
           {/* <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup> */}
@@ -221,7 +223,7 @@ const ExplorePage = () => {
             ...arrayPoint4,
           ].map((point) => new LatLng(point[0], point[1]))}
         />
-        <CurrentLocationSetter fallback={position} />
+        {/* <CurrentLocationSetter fallback={geolocation} /> */}
       </MapContainer>
 
       {/* <div
